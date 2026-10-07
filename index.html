@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Nexora Cybersecurity</title>
@@ -21,10 +23,12 @@
             font-family: Arial, sans-serif;
         }
 
+
         /* NAVIGATION */
 
         nav {
             height: 75px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -48,8 +52,11 @@
 
         nav a {
             color: #8da596;
+
             text-decoration: none;
+
             margin-left: 30px;
+
             font-size: 14px;
         }
 
@@ -74,9 +81,11 @@
             padding: 40px 20px;
 
             background:
-            radial-gradient(circle at center,
-            #062313 0%,
-            #030504 45%);
+            radial-gradient(
+                circle at center,
+                #062313 0%,
+                #030504 45%
+            );
         }
 
         .status {
@@ -121,6 +130,18 @@
             margin-bottom: 35px;
         }
 
+        .hero-image {
+            width: 80%;
+
+            max-width: 1000px;
+
+            border-radius: 15px;
+
+            margin-top: 30px;
+
+            border: 1px solid #14351f;
+        }
+
         .button {
             display: inline-block;
 
@@ -158,6 +179,7 @@
             padding: 50px 20px;
 
             border-top: 1px solid #12351f;
+
             border-bottom: 1px solid #12351f;
 
             background: #050806;
@@ -251,7 +273,7 @@
         }
 
 
-        /* DASHBOARD */
+        /* MONITOR */
 
         .dashboard {
             max-width: 1000px;
@@ -303,6 +325,126 @@
 
         .secure {
             color: #00ff88;
+        }
+
+
+        /* DIGITAL PRODUCTS */
+
+        #products {
+            background: #040705;
+
+            border-top: 1px solid #12351f;
+        }
+
+        .product-grid {
+            display: grid;
+
+            grid-template-columns:
+            repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 30px;
+
+            max-width: 1200px;
+
+            margin: auto;
+        }
+
+        .product-card {
+            background: #07100a;
+
+            border: 1px solid #14351f;
+
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            border-color: #00ff88;
+
+            transform: translateY(-7px);
+        }
+
+        .product-image {
+            width: 100%;
+
+            height: 210px;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+        .product-content {
+            padding: 25px;
+        }
+
+        .product-type {
+            color: #00ff88;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 10px;
+        }
+
+        .product-content h3 {
+            font-size: 22px;
+
+            margin-bottom: 12px;
+        }
+
+        .product-content p {
+            color: #718477;
+
+            line-height: 1.6;
+
+            min-height: 75px;
+        }
+
+        .product-bottom {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-top: 25px;
+        }
+
+        .price {
+            color: #00ff88;
+
+            font-size: 22px;
+
+            font-weight: bold;
+        }
+
+        .buy-button {
+            background: #00ff88;
+
+            color: #031008;
+
+            text-decoration: none;
+
+            padding: 11px 18px;
+
+            border-radius: 5px;
+
+            font-weight: bold;
+
+            font-size: 13px;
+
+            transition: 0.2s;
+        }
+
+        .buy-button:hover {
+            background: #7affb9;
+
+            transform: translateY(-2px);
         }
 
 
@@ -358,6 +500,8 @@
 
             nav a {
                 margin-left: 10px;
+
+                font-size: 11px;
             }
 
             .stats {
@@ -370,6 +514,18 @@
 
             section {
                 padding: 70px 6%;
+            }
+
+            .hero-image {
+                width: 95%;
+            }
+
+            .product-bottom {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 15px;
             }
 
         }
@@ -391,9 +547,15 @@
     </div>
 
     <div>
+
         <a href="#">HOME</a>
+
         <a href="#security">SECURITY</a>
+
         <a href="#monitor">MONITOR</a>
+
+        <a href="#products">STORE</a>
+
     </div>
 
 </nav>
@@ -411,17 +573,21 @@
         Protecting the
         <span>Digital Future.</span>
     </h1>
-<img
-    src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80&auto=format&fit=crop"
-    alt="Nexora Cybersecurity Server Room"
-    style="width: 80%; max-width: 1000px; border-radius: 15px; margin-top: 30px;"
->
+
+
+    <img
+        class="hero-image"
+        src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80&auto=format&fit=crop"
+        alt="Nexora Cybersecurity Server Room"
+    >
+
 
     <p>
         Nexora explores cybersecurity, ethical hacking,
         Linux and digital defense.
         Learn how modern systems are protected.
     </p>
+
 
     <a href="#security" class="button">
         EXPLORE SECURITY
@@ -551,4 +717,445 @@
         <h2>Security Monitor</h2>
 
         <p>
-            Nexora system monitoring
+            Nexora system monitoring dashboard.
+        </p>
+
+    </div>
+
+
+    <div class="dashboard">
+
+        <div class="dashboard-header">
+
+            NEXORA@SECURITY:~$ system-status
+
+        </div>
+
+
+        <div class="dashboard-body">
+
+
+            <div class="scan">
+
+                <span>Network</span>
+
+                <span class="secure">
+                    SECURE
+                </span>
+
+            </div>
+
+
+            <div class="scan">
+
+                <span>Firewall</span>
+
+                <span class="secure">
+                    ACTIVE
+                </span>
+
+            </div>
+
+
+            <div class="scan">
+
+                <span>Authentication</span>
+
+                <span class="secure">
+                    PROTECTED
+                </span>
+
+            </div>
+
+
+            <div class="scan">
+
+                <span>Threat Detection</span>
+
+                <span class="secure">
+                    RUNNING
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DIGITAL STORE -->
+
+<section id="products">
+
+    <div class="title">
+
+        <h2>Nexora Store</h2>
+
+        <p>
+            Digital resources for cybersecurity and technology.
+        </p>
+
+    </div>
+
+
+    <div class="product-grid">
+
+
+        <!-- PRODUCT 1 -->
+
+        <div class="product-card">
+
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80&auto=format&fit=crop"
+                alt="Cybersecurity Beginner Guide"
+            >
+
+
+            <div class="product-content">
+
+                <div class="product-type">
+                    EBOOK
+                </div>
+
+
+                <h3>
+                    Cybersecurity Beginner Guide
+                </h3>
+
+
+                <p>
+                    Learn the foundations of cybersecurity,
+                    networks, threats, Linux and defensive security.
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <span class="price">
+                        €9.99
+                    </span>
+
+
+                    <a href="#" class="buy-button">
+                        BUY NOW
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+
+        <div class="product-card">
+
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80&auto=format&fit=crop"
+                alt="Web Development From Zero"
+            >
+
+
+            <div class="product-content">
+
+                <div class="product-type">
+                    EBOOK
+                </div>
+
+
+                <h3>
+                    Web Development From Zero
+                </h3>
+
+
+                <p>
+                    Learn how websites work and build your
+                    first website using HTML and CSS.
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <span class="price">
+                        €12.99
+                    </span>
+
+
+                    <a href="#" class="buy-button">
+                        BUY NOW
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+
+        <div class="product-card">
+
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&q=80&auto=format&fit=crop"
+                alt="Linux Essentials"
+            >
+
+
+            <div class="product-content">
+
+                <div class="product-type">
+                    EBOOK
+                </div>
+
+
+                <h3>
+                    Linux Essentials
+                </h3>
+
+
+                <p>
+                    Learn Linux commands, files, permissions,
+                    processes and basic system administration.
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <span class="price">
+                        €7.99
+                    </span>
+
+
+                    <a href="#" class="buy-button">
+                        BUY NOW
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+
+        <div class="product-card">
+
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80&auto=format&fit=crop"
+                alt="Cybersecurity Fundamentals Course"
+            >
+
+
+            <div class="product-content">
+
+                <div class="product-type">
+                    DIGITAL COURSE
+                </div>
+
+
+                <h3>
+                    Cybersecurity Fundamentals
+                </h3>
+
+
+                <p>
+                    A beginner-friendly course covering
+                    cybersecurity concepts, threats and defense.
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <span class="price">
+                        €29.99
+                    </span>
+
+
+                    <a href="#" class="buy-button">
+                        BUY NOW
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 5 -->
+
+        <div class="product-card">
+
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80&auto=format&fit=crop"
+                alt="Ethical Hacking Course"
+            >
+
+
+            <div class="product-content">
+
+                <div class="product-type">
+                    DIGITAL COURSE
+                </div>
+
+
+                <h3>
+                    Ethical Hacking Basics
+                </h3>
+
+
+                <p>
+                    Understand ethical hacking, reconnaissance,
+                    vulnerabilities and penetration testing concepts.
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <span class="price">
+                        €39.99
+                    </span>
+
+
+                    <a href="#" class="buy-button">
+                        BUY NOW
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 6 -->
+
+        <div class="product-card">
+
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80&auto=format&fit=crop"
+                alt="Build Your First Website Course"
+            >
+
+
+            <div class="product-content">
+
+                <div class="product-type">
+                    DIGITAL COURSE
+                </div>
+
+
+                <h3>
+                    Build Your First Website
+                </h3>
+
+
+                <p>
+                    Learn how to create and publish your
+                    own website from scratch.
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <span class="price">
+                        €34.99
+                    </span>
+
+
+                    <a href="#" class="buy-button">
+                        BUY NOW
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- TERMINAL -->
+
+<section>
+
+    <div class="title">
+
+        <h2>Nexora Terminal</h2>
+
+        <p>
+            Security starts with understanding your system.
+        </p>
+
+    </div>
+
+
+    <div class="terminal">
+
+        <div>
+            $ whoami
+        </div>
+
+        <div class="white">
+            nexora_security
+        </div>
+
+        <div>
+            $ system_status
+        </div>
+
+        <div class="white">
+            All systems operational.
+        </div>
+
+        <div>
+            $ threat_scan
+        </div>
+
+        <div class="white">
+            0 threats detected.
+        </div>
+
+        <div>
+            $ access_granted
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 NEXORA CYBERSECURITY
+
+</footer>
+
+
+</body>
+
+</html>
