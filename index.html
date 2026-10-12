@@ -5,2722 +5,803 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#050806">
-<meta name="description" content="NEXORA — cybersecurity, digital education, and next-generation digital products.">
+<meta name="description" content="NEXORA — cybersecurity education and digital products.">
 <title>NEXORA — Digital Security, Redefined</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root {
-    --bg: #050806;
-    --panel: #0b110e;
-    --panel-light: #101913;
-    --green: #00ff88;
-    --green-soft: #8da596;
-    --text: #e8fff1;
-    --muted: #83938a;
-    --border: rgba(151, 255, 195, 0.12);
-    --glow: 0 0 35px rgba(0, 255, 136, 0.09);
-    --radius: 20px;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 95px;
-}
-
-body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Manrope', Arial, sans-serif;
-    line-height: 1.7;
-    overflow-x: hidden;
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: -1;
-    opacity: 0.13;
-    background-image: radial-gradient(#8affbd 0.6px, transparent 0.6px);
-    background-size: 27px 27px;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button, input {
-    font: inherit;
-}
-
-button {
-    cursor: pointer;
-}
-
-img {
-    display: block;
-    max-width: 100%;
-}
-
-::selection {
-    color: #001b0c;
-    background: var(--green);
-}
-
-.container {
-    width: min(1160px, 90%);
-    margin: auto;
-}
-
-.section {
-    padding: 105px 0;
-}
-
-.section-heading {
-    max-width: 720px;
-    margin-bottom: 42px;
-}
-
-.eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    color: var(--green);
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 18px;
-}
-
-.eyebrow::before {
-    content: "";
-    width: 20px;
-    height: 1px;
-    background: var(--green);
-}
-
-.section-heading h2 {
-    font-size: clamp(30px, 4vw, 48px);
-    letter-spacing: -2px;
-    line-height: 1.15;
-    margin-bottom: 17px;
-}
-
-.section-heading p {
-    color: var(--muted);
-    font-size: 14px;
-    max-width: 570px;
-}
-
-.gradient-text {
-    color: var(--green);
-    text-shadow: 0 0 30px rgba(0, 255, 136, 0.16);
-}
-
-.mono {
-    font-family: 'DM Mono', monospace;
-}
-
-.btn {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 13px 21px;
-    border: 1px solid var(--border);
-    border-radius: 9px;
-    color: var(--text);
-    background: rgba(255,255,255,0.025);
-    font-size: 12px;
-    font-weight: 800;
-    transition: 0.25s ease;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    border-color: var(--green);
-    box-shadow: var(--glow);
-}
-
-.btn-primary {
-    color: #00170b;
-    background: var(--green);
-    border-color: var(--green);
-}
-
-.btn-primary:hover {
-    background: #8dffc2;
-    color: #00170b;
-}
-
-.btn-small {
-    padding: 9px 13px;
-    font-size: 11px;
-}
-
-/* NAVIGATION */
-
-nav {
-    height: 75px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5%;
-    background: rgba(5, 8, 6, 0.88);
-    backdrop-filter: blur(18px);
-    border-bottom: 1px solid var(--border);
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 11px;
-    font-size: 21px;
-    font-weight: 800;
-    letter-spacing: 3px;
-}
-
-.logo-mark {
-    width: 32px;
-    height: 32px;
-    border: 1px solid var(--green);
-    border-radius: 9px;
-    display: grid;
-    place-items: center;
-    color: var(--green);
-    box-shadow: inset 0 0 14px rgba(0,255,136,.09);
-    font-family: 'DM Mono', monospace;
-    font-size: 16px;
-}
-
-.logo span {
-    color: var(--green);
-}
-
-nav .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-}
-
-nav a {
-    color: var(--green-soft);
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    transition: 0.2s;
-}
-
-nav a:hover,
-nav a.active {
-    color: var(--green);
-}
-
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.cart-button {
-    position: relative;
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text);
-    border-radius: 8px;
-    padding: 9px 13px;
-    font-size: 12px;
-}
-
-.cart-count {
-    display: inline-grid;
-    place-items: center;
-    background: var(--green);
-    color: #00170b;
-    min-width: 19px;
-    height: 19px;
-    border-radius: 50%;
-    font-size: 10px;
-    font-weight: 800;
-    margin-left: 5px;
-}
-
-.menu-toggle {
-    display: none;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--green);
-    padding: 8px 12px;
-    border-radius: 8px;
-}
-
-/* HERO */
-
-.hero {
-    position: relative;
-    min-height: 670px;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    background:
-        radial-gradient(ellipse at 15% 40%, rgba(0,255,136,.10), transparent 38%),
-        linear-gradient(115deg, #050806 35%, rgba(5,8,6,.80) 65%, #050806 100%);
-}
-
-.hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, #050806 8%, rgba(5,8,6,.88) 43%, rgba(5,8,6,.24) 100%);
-    pointer-events: none;
-}
-
-.hero-image {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 65%;
-    height: 100%;
-    object-fit: cover;
-    opacity: .47;
-    filter: saturate(.55) contrast(1.12);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 760px;
-    padding: 95px 0;
-}
-
-.status-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 13px;
-    border: 1px solid rgba(0,255,136,.23);
-    border-radius: 100px;
-    background: rgba(0,255,136,.04);
-    color: #b7d9c6;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    margin-bottom: 28px;
-}
-
-.status-dot {
-    width: 7px;
-    height: 7px;
-    background: var(--green);
-    border-radius: 50%;
-    box-shadow: 0 0 12px var(--green);
-    animation: pulse 1.8s infinite;
-}
-
-.hero h1 {
-    font-size: clamp(46px, 7.6vw, 88px);
-    letter-spacing: -5px;
-    line-height: .99;
-    margin-bottom: 26px;
-    max-width: 760px;
-}
-
-.hero p {
-    color: #a4b5aa;
-    max-width: 500px;
-    font-size: 15px;
-    line-height: 1.9;
-    margin-bottom: 31px;
-}
-
-.hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 13px;
-}
-
-.hero-meta {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-top: 55px;
-    padding-top: 25px;
-    border-top: 1px solid var(--border);
-}
-
-.hero-meta div {
-    color: var(--muted);
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 1px;
-}
-
-.hero-meta strong {
-    display: block;
-    color: var(--text);
-    font-size: 13px;
-    letter-spacing: 0;
-    margin-bottom: 4px;
-}
-
-/* STATS */
-
-.stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    background: rgba(10,17,12,.7);
-    margin-top: -1px;
-}
-
-.stat {
-    padding: 27px 20px;
-    text-align: center;
-    border-right: 1px solid var(--border);
-}
-
-.stat:last-child {
-    border-right: 0;
-}
-
-.stat h3 {
-    color: var(--green);
-    font-size: 29px;
-    letter-spacing: -1px;
-}
-
-.stat p {
-    color: var(--muted);
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-top: 3px;
-}
-
-/* CYBERSECURITY CARDS */
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-}
-
-.card {
-    position: relative;
-    padding: 29px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: linear-gradient(145deg, rgba(16,25,19,.92), rgba(7,11,8,.92));
-    transition: .3s ease;
-    overflow: hidden;
-}
-
-.card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 65px;
-    height: 2px;
-    background: var(--green);
-    opacity: .6;
-}
-
-.card:hover {
-    transform: translateY(-7px);
-    border-color: rgba(0,255,136,.4);
-    box-shadow: var(--glow);
-}
-
-.card-icon {
-    display: grid;
-    place-items: center;
-    width: 47px;
-    height: 47px;
-    border: 1px solid rgba(0,255,136,.18);
-    background: rgba(0,255,136,.06);
-    border-radius: 13px;
-    color: var(--green);
-    font-size: 22px;
-    margin-bottom: 23px;
-}
-
-.card h3 {
-    font-size: 17px;
-    margin-bottom: 11px;
-}
-
-.card p {
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.9;
-}
-
-.card-link {
-    display: inline-block;
-    color: var(--green);
-    font-size: 11px;
-    font-weight: 800;
-    margin-top: 22px;
-}
-
-/* ABOUT */
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.about-visual {
-    position: relative;
-    min-height: 390px;
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    overflow: hidden;
-    background: #0a120d;
-}
-
-.about-visual img {
-    width: 100%;
-    height: 390px;
-    object-fit: cover;
-    opacity: .68;
-    filter: saturate(.6);
-}
-
-.about-visual::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(0deg, #050806, transparent 80%);
-}
-
-.about-overlay {
-    position: absolute;
-    z-index: 1;
-    left: 25px;
-    right: 25px;
-    bottom: 25px;
-    padding: 19px;
-    background: rgba(5,8,6,.78);
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-}
-
-.about-overlay strong {
-    display: block;
-    font-size: 13px;
-    margin-bottom: 4px;
-}
-
-.about-overlay span {
-    color: var(--green);
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-}
-
-.about-copy h2 {
-    font-size: clamp(30px, 4vw, 45px);
-    line-height: 1.2;
-    letter-spacing: -2px;
-    margin-bottom: 20px;
-}
-
-.about-copy > p {
-    color: var(--muted);
-    font-size: 13px;
-    margin-bottom: 24px;
-}
-
-.check-list {
-    list-style: none;
-    display: grid;
-    gap: 13px;
-}
-
-.check-list li {
-    color: #c2d5c9;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    gap: 11px;
-}
-
-.check-list li span {
-    color: var(--green);
-}
-
-/* SECURITY MONITOR */
-
-.monitor-section {
-    background: linear-gradient(180deg, transparent, rgba(0,255,136,.025), transparent);
-}
-
-.monitor-layout {
-    display: grid;
-    grid-template-columns: 1.4fr .8fr;
-    gap: 20px;
-}
-
-.panel {
-    border: 1px solid var(--border);
-    background: rgba(9,15,11,.91);
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--glow);
-}
-
-.panel-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    padding: 17px 20px;
-    border-bottom: 1px solid var(--border);
-    background: rgba(255,255,255,.015);
-}
-
-.panel-header h3 {
-    font-size: 12px;
-    letter-spacing: .5px;
-}
-
-.panel-header span {
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    color: var(--green);
-}
-
-.panel-body {
-    padding: 24px;
-}
-
-.scan-status {
-    display: flex;
-    align-items: center;
-    gap: 17px;
-    margin-bottom: 25px;
-}
-
-.scan-ring {
-    width: 62px;
-    height: 62px;
-    border: 1px solid rgba(0,255,136,.3);
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    color: var(--green);
-    font-size: 23px;
-    animation: ring 5s linear infinite;
-}
-
-.scan-status strong {
-    display: block;
-    font-size: 14px;
-}
-
-.scan-status p {
-    color: var(--muted);
-    font-size: 11px;
-}
-
-.progress-track {
-    height: 5px;
-    background: #17231b;
-    border-radius: 100px;
-    overflow: hidden;
-    margin: 17px 0 9px;
-}
-
-.progress-fill {
-    height: 100%;
-    width: 0;
-    background: var(--green);
-    box-shadow: 0 0 15px var(--green);
-    transition: width .3s;
-}
-
-.scan-meta {
-    display: flex;
-    justify-content: space-between;
-    color: var(--muted);
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-}
-
-.scan-results {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-top: 26px;
-}
-
-.scan-result {
-    background: rgba(255,255,255,.025);
-    border: 1px solid var(--border);
-    padding: 15px 10px;
-    border-radius: 10px;
-}
-
-.scan-result strong {
-    display: block;
-    font-size: 22px;
-    color: var(--green);
-}
-
-.scan-result span {
-    font-size: 9px;
-    color: var(--muted);
-    text-transform: uppercase;
-}
-
-.scan-button {
-    margin-top: 22px;
-    width: 100%;
-}
-
-.activity-list {
-    list-style: none;
-    display: grid;
-    gap: 0;
-}
-
-.activity-list li {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 15px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 11px;
-}
-
-.activity-list li:last-child {
-    border-bottom: 0;
-}
-
-.activity-list span {
-    color: var(--muted);
-}
-
-.activity-list strong {
-    color: var(--green);
-    font-size: 10px;
-}
-
-/* STORE */
-
-.store-top {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 25px;
-    flex-wrap: wrap;
-}
-
-.store-tools {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 30px;
-}
-
-.search-input {
-    min-width: 210px;
-    width: 240px;
-    padding: 11px 14px;
-    background: var(--panel);
-    color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: 9px;
-    outline: none;
-    font-size: 12px;
-}
-
-.search-input:focus {
-    border-color: var(--green);
-}
-
-.filter-btn {
-    padding: 10px 13px;
-    color: var(--muted);
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 9px;
-    font-size: 11px;
-    transition: .2s;
-}
-
-.filter-btn:hover,
-.filter-btn.active {
-    color: #00170b;
-    background: var(--green);
-    border-color: var(--green);
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.product-card {
-    border: 1px solid var(--border);
-    background: linear-gradient(160deg, #101812, #080c09);
-    border-radius: 17px;
-    overflow: hidden;
-    transition: .3s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(0,255,136,.38);
-    box-shadow: var(--glow);
-}
-
-.product-image {
-    position: relative;
-    height: 205px;
-    overflow: hidden;
-    background: #101812;
-}
-
-.product-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform .5s;
-    filter: saturate(.72);
-}
-
-.product-card:hover .product-image img {
-    transform: scale(1.06);
-}
-
-.product-type {
-    position: absolute;
-    top: 13px;
-    left: 13px;
-    padding: 6px 9px;
-    background: rgba(5,8,6,.85);
-    backdrop-filter: blur(8px);
-    color: var(--green);
-    border: 1px solid rgba(0,255,136,.2);
-    border-radius: 6px;
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: .5px;
-}
-
-.product-content {
-    padding: 21px;
-}
-
-.product-content h3 {
-    font-size: 15px;
-    margin-bottom: 8px;
-}
-
-.product-content p {
-    min-height: 45px;
-    color: var(--muted);
-    font-size: 11px;
-    line-height: 1.8;
-}
-
-.product-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    margin-top: 19px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-}
-
-.price {
-    font-size: 18px;
-    font-weight: 800;
-}
-
-.price small {
-    display: block;
-    color: var(--muted);
-    font-size: 9px;
-    font-weight: 500;
-}
-
-.buy-button {
-    background: var(--green);
-    color: #00170b;
-    border: 0;
-    border-radius: 8px;
-    padding: 10px 13px;
-    font-size: 10px;
-    font-weight: 800;
-    transition: .2s;
-}
-
-.buy-button:hover {
-    background: #9bffca;
-    transform: translateY(-2px);
-}
-
-.no-products {
-    display: none;
-    padding: 40px;
-    text-align: center;
-    color: var(--muted);
-}
-
-/* TERMINAL */
-
-.terminal {
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: #050906;
-    overflow: hidden;
-    box-shadow: 0 25px 80px rgba(0,0,0,.25);
-}
-
-.terminal-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    border-bottom: 1px solid var(--border);
-    background: #0c120e;
-}
-
-.terminal-dots {
-    display: flex;
-    gap: 6px;
-}
-
-.terminal-dots span {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #304238;
-}
-
-.terminal-dots span:first-child {
-    background: #ff6969;
-}
-
-.terminal-dots span:nth-child(2) {
-    background: #f7ce69;
-}
-
-.terminal-dots span:nth-child(3) {
-    background: var(--green);
-}
-
-.terminal-top p {
-    color: var(--muted);
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-}
-
-.terminal-body {
-    padding: 25px;
-    min-height: 235px;
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    line-height: 2;
-    color: #a9c9b5;
-}
-
-.terminal-line {
-    overflow-wrap: anywhere;
-}
-
-.terminal-prompt {
-    color: var(--green);
-}
-
-.terminal-input-row {
-    display: flex;
-    gap: 10px;
-    margin-top: 12px;
-}
-
-.terminal-input {
-    flex: 1;
-    min-width: 0;
-    border: 0;
-    outline: 0;
-    background: transparent;
-    color: var(--green);
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-}
-
-.terminal-help {
-    color: #617d6a;
-    font-size: 10px;
-    margin-top: 12px;
-}
-
-/* TESTIMONIALS */
-
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-}
-
-.testimonial {
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 25px;
-    background: rgba(11,17,13,.8);
-}
-
-.stars {
-    color: var(--green);
-    letter-spacing: 3px;
-    font-size: 12px;
-    margin-bottom: 18px;
-}
-
-.testimonial blockquote {
-    color: #c0d0c5;
-    font-size: 12px;
-    line-height: 2;
-    margin-bottom: 22px;
-}
-
-.person {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.avatar {
-    width: 36px;
-    height: 36px;
-    display: grid;
-    place-items: center;
-    background: rgba(0,255,136,.08);
-    color: var(--green);
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    font-size: 12px;
-    font-weight: 800;
-}
-
-.person strong {
-    display: block;
-    font-size: 11px;
-}
-
-.person span {
-    color: var(--muted);
-    font-size: 10px;
-}
-
-/* FAQ */
-
-.faq-list {
-    max-width: 800px;
-    display: grid;
-    gap: 11px;
-}
-
-.faq-item {
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    background: rgba(10,16,12,.8);
-    overflow: hidden;
-}
-
-.faq-question {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    background: transparent;
-    color: var(--text);
-    border: 0;
-    text-align: left;
-    font-size: 12px;
-    font-weight: 800;
-}
-
-.faq-question span {
-    color: var(--green);
-    font-size: 19px;
-}
-
-.faq-answer {
-    display: none;
-    padding: 0 20px 20px;
-    color: var(--muted);
-    font-size: 12px;
-    line-height: 1.9;
-}
-
-.faq-item.open .faq-answer {
-    display: block;
-}
-
-.faq-item.open .faq-question span {
-    transform: rotate(45deg);
-}
-
-/* NEWSLETTER */
-
-.newsletter {
-    position: relative;
-    padding: 55px;
-    border: 1px solid rgba(0,255,136,.22);
-    border-radius: 25px;
-    background:
-        radial-gradient(ellipse at 100% 0%, rgba(0,255,136,.11), transparent 45%),
-        linear-gradient(135deg, #0d1710, #070b08);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 35px;
-}
-
-.newsletter h2 {
-    font-size: clamp(25px, 4vw, 38px);
-    line-height: 1.2;
-    letter-spacing: -1.5px;
-    margin-bottom: 12px;
-}
-
-.newsletter p {
-    color: var(--muted);
-    font-size: 12px;
-    max-width: 480px;
-}
-
-.newsletter-form {
-    display: flex;
-    gap: 8px;
-    min-width: 300px;
-}
-
-.newsletter-form input {
-    width: 100%;
-    min-width: 0;
-    padding: 13px;
-    border: 1px solid var(--border);
-    border-radius: 9px;
-    background: #050806;
-    color: var(--text);
-    outline: none;
-    font-size: 11px;
-}
-
-.newsletter-form input:focus {
-    border-color: var(--green);
-}
-
-/* FOOTER */
-
-footer {
-    margin-top: 40px;
-    border-top: 1px solid var(--border);
-    background: rgba(4,7,5,.7);
-    padding: 45px 0 20px;
-}
-
-.footer-top {
-    display: flex;
-    justify-content: space-between;
-    gap: 35px;
-    flex-wrap: wrap;
-    padding-bottom: 35px;
-}
-
-.footer-brand p {
-    max-width: 300px;
-    color: var(--muted);
-    font-size: 11px;
-    margin-top: 15px;
-}
-
-.footer-links h4 {
-    font-size: 11px;
-    margin-bottom: 14px;
-}
-
-.footer-links a {
-    display: block;
-    color: var(--muted);
-    font-size: 11px;
-    margin-bottom: 10px;
-    transition: .2s;
-}
-
-.footer-links a:hover {
-    color: var(--green);
-}
-
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    flex-wrap: wrap;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
-    color: #64746a;
-    font-size: 10px;
-}
-
-/* CART DRAWER */
-
-.drawer-backdrop {
-    position: fixed;
-    inset: 0;
-    z-index: 1998;
-    background: rgba(0,0,0,.65);
-    opacity: 0;
-    visibility: hidden;
-    transition: .25s;
-}
-
-.drawer-backdrop.open {
-    opacity: 1;
-    visibility: visible;
-}
-
-.cart-drawer {
-    position: fixed;
-    z-index: 1999;
-    top: 0;
-    right: -440px;
-    width: min(420px, 100%);
-    height: 100dvh;
-    background: #080d09;
-    border-left: 1px solid var(--border);
-    padding: 25px;
-    transition: right .3s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.cart-drawer.open {
-    right: 0;
-}
-
-.drawer-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border);
-}
-
-.drawer-header h2 {
-    font-size: 18px;
-}
-
-.close-button {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text);
-    border-radius: 8px;
-    padding: 6px 11px;
-}
-
-.cart-items {
-    flex: 1;
-    overflow-y: auto;
-    padding: 15px 0;
-}
-
-.cart-item {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 12px;
-    padding: 17px 0;
-    border-bottom: 1px solid var(--border);
-}
-
-.cart-item h4 {
-    font-size: 12px;
-}
-
-.cart-item p {
-    color: var(--green);
-    font-size: 11px;
-    margin-top: 4px;
-}
-
-.quantity-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 9px;
-}
-
-.quantity-controls button {
-    width: 25px;
-    height: 25px;
-    border: 1px solid var(--border);
-    background: var(--panel);
-    color: var(--text);
-    border-radius: 5px;
-}
-
-.remove-item {
-    background: transparent;
-    border: 0;
-    color: #ff8989;
-    font-size: 10px;
-    margin-top: 8px;
-}
-
-.cart-summary {
-    border-top: 1px solid var(--border);
-    padding-top: 20px;
-}
-
-.cart-total {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-    margin-bottom: 17px;
-}
-
-.cart-total strong {
-    color: var(--green);
-}
-
-.cart-summary .btn {
-    width: 100%;
-}
-
-.cart-note {
-    color: var(--muted);
-    font-size: 10px;
-    margin-top: 12px;
-    line-height: 1.7;
-}
-
-.empty-cart {
-    color: var(--muted);
-    text-align: center;
-    padding: 55px 10px;
-    font-size: 12px;
-}
-
-/* TOAST + BACK TO TOP */
-
-.toast {
-    position: fixed;
-    z-index: 3000;
-    left: 50%;
-    bottom: 25px;
-    transform: translate(-50%, 20px);
-    background: #102017;
-    color: var(--text);
-    border: 1px solid rgba(0,255,136,.3);
-    box-shadow: var(--glow);
-    border-radius: 10px;
-    padding: 13px 20px;
-    font-size: 12px;
-    opacity: 0;
-    visibility: hidden;
-    transition: .25s;
-    width: max-content;
-    max-width: 90%;
-    text-align: center;
-}
-
-.toast.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translate(-50%, 0);
-}
-
-.back-top {
-    position: fixed;
-    right: 20px;
-    bottom: 22px;
-    z-index: 900;
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    color: var(--green);
-    background: #0a110c;
-    display: none;
-    place-items: center;
-    font-size: 18px;
-}
-
-.back-top.visible {
-    display: grid;
-}
-
-/* ANIMATIONS */
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; box-shadow: 0 0 12px var(--green); }
-    50% { opacity: .45; box-shadow: 0 0 3px var(--green); }
-}
-
-@keyframes ring {
-    0% { box-shadow: 0 0 0 0 rgba(0,255,136,.08); }
-    50% { box-shadow: 0 0 0 10px rgba(0,255,136,0); }
-    100% { box-shadow: 0 0 0 0 rgba(0,255,136,0); }
-}
-
-.reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity .7s ease, transform .7s ease;
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 900px) {
-    nav .nav-links {
-        gap: 16px;
-    }
-
-    nav a {
-        font-size: 10px;
-    }
-
-    .nav-actions .btn {
-        display: none;
-    }
-
-    .hero h1 {
-        letter-spacing: -3px;
-    }
-
-    .cards,
-    .product-grid,
-    .testimonial-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .monitor-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .about-grid {
-        gap: 30px;
-    }
-
-    .newsletter {
-        padding: 35px;
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .newsletter-form {
-        min-width: 0;
-    }
-}
-
-@media (max-width: 650px) {
-    .section {
-        padding: 72px 0;
-    }
-
-    nav {
-        height: 67px;
-    }
-
-    .logo {
-        font-size: 17px;
-        letter-spacing: 2px;
-    }
-
-    .logo-mark {
-        width: 29px;
-        height: 29px;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    nav .nav-links {
-        display: none;
-        position: absolute;
-        top: 67px;
-        left: 0;
-        right: 0;
-        padding: 18px 5% 23px;
-        background: rgba(5,8,6,.98);
-        border-bottom: 1px solid var(--border);
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-    }
-
-    nav .nav-links.open {
-        display: flex;
-    }
-
-    nav .nav-links a {
-        padding: 13px 0;
-        border-bottom: 1px solid var(--border);
-        font-size: 12px;
-    }
-
-    .nav-actions {
-        gap: 7px;
-    }
-
-    .cart-button {
-        padding: 8px;
-        font-size: 10px;
-    }
-
-    .hero {
-        min-height: 600px;
-    }
-
-    .hero-image {
-        width: 100%;
-        opacity: .24;
-    }
-
-    .hero::after {
-        background: linear-gradient(90deg, rgba(5,8,6,.95), rgba(5,8,6,.65));
-    }
-
-    .hero-content {
-        padding: 75px 0;
-    }
-
-    .hero h1 {
-        font-size: clamp(43px, 12vw, 65px);
-        letter-spacing: -3px;
-    }
-
-    .hero p {
-        font-size: 13px;
-    }
-
-    .hero-meta {
-        gap: 18px;
-        margin-top: 38px;
-    }
-
-    .stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .stat:nth-child(2) {
-        border-right: 0;
-    }
-
-    .stat:nth-child(-n+2) {
-        border-bottom: 1px solid var(--border);
-    }
-
-    .stat h3 {
-        font-size: 24px;
-    }
-
-    .cards,
-    .product-grid,
-    .testimonial-grid,
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .about-visual,
-    .about-visual img {
-        min-height: 300px;
-        height: 300px;
-    }
-
-    .store-top {
-        align-items: flex-start;
-    }
-
-    .store-tools {
-        width: 100%;
-    }
-
-    .search-input {
-        width: 100%;
-    }
-
-    .filter-btn {
-        flex: 1;
-    }
-
-    .product-image {
-        height: 230px;
-    }
-
-    .scan-results {
-        gap: 6px;
-    }
-
-    .scan-result {
-        padding: 12px 7px;
-    }
-
-    .scan-result strong {
-        font-size: 19px;
-    }
-
-    .terminal-body {
-        padding: 18px;
-        font-size: 11px;
-    }
-
-    .newsletter {
-        padding: 27px 22px;
-    }
-
-    .newsletter-form {
-        flex-direction: column;
-    }
-
-    .newsletter-form .btn {
-        width: 100%;
-    }
-
-    .footer-top {
-        gap: 25px;
-    }
-
-    .footer-brand {
-        width: 100%;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
-    }
-
-    .reveal {
-        opacity: 1;
-        transform: none;
-    }
+  --bg:#050806;
+  --panel:#0b110e;
+  --panel2:#101913;
+  --green:#00ff88;
+  --text:#e8fff1;
+  --muted:#83938a;
+  --border:rgba(151,255,195,.13);
+  --glow:0 0 35px rgba(0,255,136,.09);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:var(--text);font-family:Manrope,Arial,sans-serif;line-height:1.7;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.12;background-image:radial-gradient(#8affbd .6px,transparent .6px);background-size:27px 27px}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+button{cursor:pointer}
+img{display:block;max-width:100%}
+.container{width:min(1160px,90%);margin:auto}
+.section{padding:95px 0}
+.eyebrow{display:inline-block;color:var(--green);font:11px "DM Mono",monospace;letter-spacing:2px;text-transform:uppercase;margin-bottom:17px}
+h2{font-size:clamp(30px,4vw,46px);line-height:1.2;letter-spacing:-1.5px}
+.section-heading{max-width:700px;margin-bottom:35px}
+.section-heading p{color:var(--muted);font-size:14px;margin-top:14px}
+.green{color:var(--green)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;border:1px solid var(--border);border-radius:9px;background:#101812;color:var(--text);font-size:12px;font-weight:800;transition:.25s}
+.btn:hover{transform:translateY(-3px);border-color:var(--green)}
+.btn-primary{background:var(--green);color:#00170b;border-color:var(--green)}
+.btn-primary:hover{background:#9bffca;color:#00170b}
+nav{height:75px;position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(5,8,6,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:800;letter-spacing:3px}
+.logo-mark{width:33px;height:33px;display:grid;place-items:center;border:1px solid var(--green);border-radius:9px;color:var(--green);font:16px "DM Mono",monospace}
+.logo span{color:var(--green)}
+.nav-links{display:flex;gap:25px;align-items:center}
+.nav-links a{color:#8da596;font-size:11px;font-weight:800;letter-spacing:.6px}
+.nav-links a:hover{color:var(--green)}
+.nav-actions{display:flex;gap:10px;align-items:center}
+.cart-button,.menu-toggle{padding:9px 12px;background:transparent;color:var(--text);border:1px solid var(--border);border-radius:8px;font-size:12px}
+.cart-count{background:var(--green);color:#00170b;padding:2px 7px;border-radius:20px;font-weight:800}
+.menu-toggle{display:none}
+.hero{min-height:630px;position:relative;display:flex;align-items:center;overflow:hidden;background:radial-gradient(ellipse at 15% 40%,rgba(0,255,136,.11),transparent 40%),linear-gradient(115deg,#050806 35%,#08110b 100%)}
+.hero-image{position:absolute;right:0;top:0;width:65%;height:100%;object-fit:cover;opacity:.37;filter:saturate(.55);mask-image:linear-gradient(90deg,transparent,#000 55%)}
+.hero-content{position:relative;z-index:1;padding:90px 0;max-width:760px}
+.status-pill{display:inline-block;padding:7px 13px;border:1px solid rgba(0,255,136,.25);border-radius:50px;color:#b7d9c6;font:10px "DM Mono",monospace;margin-bottom:27px}
+.status-pill i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:8px;box-shadow:0 0 12px var(--green)}
+.hero h1{font-size:clamp(46px,7.5vw,86px);line-height:1;letter-spacing:-4px;margin-bottom:25px}
+.hero p{max-width:510px;color:#a4b5aa;font-size:14px;line-height:1.9;margin-bottom:28px}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:32px;flex-wrap:wrap;margin-top:48px;padding-top:23px;border-top:1px solid var(--border)}
+.hero-meta strong{display:block;font-size:13px}
+.hero-meta div{color:var(--muted);font:10px "DM Mono",monospace}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#0a110c}
+.stat{text-align:center;padding:24px 12px;border-right:1px solid var(--border)}
+.stat:last-child{border:0}
+.stat strong{display:block;color:var(--green);font-size:27px}
+.stat span{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:1px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{padding:27px;border:1px solid var(--border);border-radius:17px;background:linear-gradient(145deg,#101913,#080c09);transition:.25s}
+.card:hover{transform:translateY(-5px);border-color:rgba(0,255,136,.4);box-shadow:var(--glow)}
+.card-icon{font-size:25px;color:var(--green);margin-bottom:17px}
+.card h3{font-size:16px;margin-bottom:9px}
+.card p{font-size:12px;color:var(--muted);line-height:1.9}
+.card-link{display:inline-block;color:var(--green);font-size:11px;font-weight:800;margin-top:18px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.about-visual{position:relative;min-height:370px;border:1px solid var(--border);border-radius:20px;overflow:hidden}
+.about-visual img{width:100%;height:370px;object-fit:cover;opacity:.65}
+.about-overlay{position:absolute;bottom:20px;left:20px;right:20px;padding:17px;background:rgba(5,8,6,.86);border:1px solid var(--border);border-radius:12px}
+.about-overlay strong,.about-overlay span{display:block}
+.about-overlay span{color:var(--green);font:10px "DM Mono",monospace}
+.about-copy>p{font-size:13px;color:var(--muted);margin:18px 0}
+.check-list{list-style:none;display:grid;gap:12px}
+.check-list li{font-size:12px;color:#c2d5c9}
+.check-list li::before{content:"✓";color:var(--green);margin-right:10px}
+.monitor-layout{display:grid;grid-template-columns:1.4fr .8fr;gap:20px}
+.panel{border:1px solid var(--border);background:#090f0b;border-radius:17px;overflow:hidden;box-shadow:var(--glow)}
+.panel-header{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 20px;border-bottom:1px solid var(--border)}
+.panel-header h3{font-size:12px}
+.panel-header span{color:var(--green);font:10px "DM Mono",monospace}
+.panel-body{padding:23px}
+.scan-status{display:flex;align-items:center;gap:15px}
+.scan-ring{width:55px;height:55px;flex-shrink:0;border:1px solid rgba(0,255,136,.35);border-radius:50%;display:grid;place-items:center;color:var(--green);font-size:22px}
+.scan-status strong{font-size:13px}
+.scan-status p{font-size:11px;color:var(--muted)}
+.progress-track{height:5px;background:#17231b;border-radius:20px;overflow:hidden;margin:20px 0 9px}
+.progress-fill{height:100%;width:0;background:var(--green);transition:width .2s}
+.scan-meta{display:flex;justify-content:space-between;color:var(--muted);font:10px "DM Mono",monospace}
+.scan-results{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:24px}
+.scan-result{padding:13px 9px;border:1px solid var(--border);border-radius:9px}
+.scan-result strong{display:block;color:var(--green);font-size:21px}
+.scan-result span{color:var(--muted);font-size:9px;text-transform:uppercase}
+.scan-button{width:100%;margin-top:20px}
+.activity-list{list-style:none}
+.activity-list li{display:flex;justify-content:space-between;gap:10px;padding:14px 0;border-bottom:1px solid var(--border);font-size:11px}
+.activity-list li:last-child{border:0}
+.activity-list span{color:var(--muted)}
+.activity-list strong{color:var(--green);font-size:10px}
+.store-top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.store-tools{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 25px}
+.search-input{width:230px;max-width:100%;padding:11px 13px;background:var(--panel);color:white;border:1px solid var(--border);border-radius:9px;font-size:12px;outline:none}
+.search-input:focus{border-color:var(--green)}
+.filter-btn{padding:10px 13px;color:var(--muted);background:var(--panel);border:1px solid var(--border);border-radius:8px;font-size:11px}
+.filter-btn.active,.filter-btn:hover{color:#00170b;background:var(--green);border-color:var(--green)}
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.product-card{border:1px solid var(--border);background:linear-gradient(160deg,#101812,#080c09);border-radius:16px;overflow:hidden;transition:.25s;cursor:pointer}
+.product-card:hover{transform:translateY(-5px);border-color:rgba(0,255,136,.4);box-shadow:var(--glow)}
+.product-image{height:195px;position:relative;overflow:hidden;background:#101812}
+.product-image img{width:100%;height:100%;object-fit:cover;transition:.4s;filter:saturate(.7)}
+.product-card:hover .product-image img{transform:scale(1.05)}
+.product-type{position:absolute;top:12px;left:12px;padding:5px 9px;background:rgba(5,8,6,.9);color:var(--green);border:1px solid rgba(0,255,136,.2);border-radius:5px;font:9px "DM Mono",monospace}
+.product-content{padding:20px}
+.product-content h3{font-size:14px;margin-bottom:7px}
+.product-content p{min-height:43px;color:var(--muted);font-size:11px;line-height:1.8}
+.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-top:17px;padding-top:14px;border-top:1px solid var(--border)}
+.price{font-size:18px;font-weight:800}
+.price small{display:block;color:var(--muted);font-size:9px;font-weight:500}
+.buy-button{background:var(--green);color:#00170b;border:0;border-radius:7px;padding:10px 12px;font-size:10px;font-weight:800}
+.no-products{display:none;text-align:center;padding:35px;color:var(--muted)}
+.terminal{border:1px solid var(--border);border-radius:16px;background:#050906;overflow:hidden}
+.terminal-top{display:flex;justify-content:space-between;padding:14px 18px;background:#0c120e;border-bottom:1px solid var(--border);font:11px "DM Mono",monospace}
+.terminal-output{height:225px;overflow:auto;padding:20px;color:#a8ffd0;font:12px/1.9 "DM Mono",monospace;white-space:pre-wrap}
+.terminal-form{display:flex;gap:10px;padding:13px 18px;border-top:1px solid var(--border)}
+.terminal-form span{color:var(--green);font:12px "DM Mono",monospace}
+.terminal-form input{flex:1;min-width:0;background:transparent;color:white;border:0;outline:none;font:12px "DM Mono",monospace}
+.faq-list{display:grid;gap:10px;max-width:850px}
+details{padding:18px 20px;border:1px solid var(--border);border-radius:11px;background:#0b110e}
+summary{cursor:pointer;font-size:13px;font-weight:700}
+details p{color:var(--muted);font-size:12px;line-height:1.9;margin-top:12px}
+footer{padding:35px 0;border-top:1px solid var(--border);color:var(--muted);font-size:11px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.footer-links{display:flex;gap:20px}
+.footer-links a:hover{color:var(--green)}
+/* PRODUCT DETAILS */
+.modal{display:none;position:fixed;inset:0;z-index:3000;align-items:center;justify-content:center;padding:18px;background:rgba(0,0,0,.86);backdrop-filter:blur(12px)}
+.modal.open{display:flex}
+.modal-box{position:relative;width:100%;max-width:850px;max-height:90vh;overflow-y:auto;padding:28px;background:#0b110e;border:1px solid rgba(0,255,136,.3);border-radius:19px;box-shadow:0 0 60px rgba(0,255,136,.1)}
+.close-button{float:right;background:#101913;color:white;border:1px solid var(--border);border-radius:8px;padding:7px 12px;font-size:17px}
+.modal-label{color:var(--green);font:10px "DM Mono",monospace;letter-spacing:2px}
+.modal-title{font-size:clamp(27px,5vw,40px);line-height:1.2;margin:18px 0 10px}
+.modal-description{color:var(--muted);font-size:13px;line-height:1.9}
+.modal-price{color:var(--green);font-size:28px;font-weight:800;margin:17px 0}
+.modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0}
+.modal-section{padding:18px;background:#101913;border:1px solid var(--border);border-radius:12px}
+.modal-section h4{color:var(--green);font-size:12px;margin-bottom:10px}
+.modal-section p,.modal-section li{font-size:12px;color:#b3c4b9;line-height:1.9}
+.modal-section ul{padding-left:19px}
+.preview{padding:17px;white-space:pre-wrap;overflow-wrap:anywhere;overflow-x:auto;background:#050906;border:1px solid var(--border);border-radius:9px;color:#a8ffd0;font:12px/1.9 "DM Mono",monospace}
+.modal-add{width:100%;padding:14px;margin-top:18px;border:0;border-radius:9px;background:var(--green);color:#00170b;font-weight:800}
+.modal-note{color:var(--muted);font-size:10px;margin-top:10px}
+.cart-items{display:grid;gap:12px;margin:20px 0}
+.cart-item{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:13px 0;border-bottom:1px solid var(--border);font-size:12px}
+.cart-item button{background:transparent;border:1px solid var(--border);color:var(--green);border-radius:6px;padding:4px 8px}
+.cart-total{display:flex;justify-content:space-between;font-size:18px;font-weight:800;padding:15px 0}
+@media(max-width:900px){
+ .nav-links{gap:12px}.nav-links a{font-size:10px}
+ .product-grid,.cards{grid-template-columns:repeat(2,1fr)}
+ .monitor-layout{grid-template-columns:1fr}
+ .about-grid{gap:30px}
+}
+@media(max-width:650px){
+ nav{height:67px;padding:0 5%}
+ .menu-toggle{display:block}
+ .nav-links{display:none;position:absolute;top:66px;left:0;right:0;padding:20px;background:#080d0a;border-bottom:1px solid var(--border);flex-direction:column;align-items:flex-start}
+ .nav-links.show{display:flex}
+ .hero{min-height:590px}
+ .hero-image{width:100%;opacity:.22;mask-image:linear-gradient(90deg,transparent,#000)}
+ .hero h1{letter-spacing:-2.5px}
+ .section{padding:70px 0}
+ .stats{grid-template-columns:repeat(2,1fr)}
+ .stat:nth-child(2){border-right:0}
+ .stat:nth-child(-n+2){border-bottom:1px solid var(--border)}
+ .product-grid,.cards,.about-grid{grid-template-columns:1fr}
+ .about-visual,.about-visual img{height:300px;min-height:300px}
+ .modal-box{padding:20px}
+ .modal-grid{grid-template-columns:1fr}
+ .hero-meta{gap:20px}
 }
 </style>
 </head>
 
 <body>
-
-<!-- NAVIGATION -->
 <nav>
-    <a href="#home" class="logo" aria-label="NEXORA home">
-        <span class="logo-mark">N</span>
-        NEX<span>ORA</span>
-    </a>
-
-    <div class="nav-links" id="navLinks">
-        <a href="#home">HOME</a>
-        <a href="#security">SECURITY</a>
-        <a href="#about">ABOUT</a>
-        <a href="#monitor">MONITOR</a>
-        <a href="#products">STORE</a>
-        <a href="#terminal">TERMINAL</a>
-    </div>
-
-    <div class="nav-actions">
-        <button class="cart-button" id="openCart" aria-label="Open shopping cart">
-            CART <span class="cart-count" id="cartCount">0</span>
-        </button>
-        <a href="#products" class="btn btn-primary">EXPLORE STORE ↗</a>
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
-    </div>
+  <a class="logo" href="#home"><span class="logo-mark">N</span>NEX<span>ORA</span></a>
+  <div class="nav-links" id="navLinks">
+    <a href="#home">HOME</a>
+    <a href="#about">ABOUT</a>
+    <a href="#monitor">MONITOR</a>
+    <a href="#store">STORE</a>
+    <a href="#terminal">TERMINAL</a>
+  </div>
+  <div class="nav-actions">
+    <button class="cart-button" id="openCart">Cart <span class="cart-count" id="cartCount">0</span></button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+  </div>
 </nav>
 
-<!-- HERO -->
 <header class="hero" id="home">
-    <img
-        class="hero-image"
-        src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&q=85&auto=format&fit=crop"
-        alt="Modern server room"
-    >
-
-    <div class="container">
-        <div class="hero-content">
-            <div class="status-pill">
-                <span class="status-dot"></span>
-                THE NEXT GENERATION OF DIGITAL SECURITY
-            </div>
-
-            <h1>Think Ahead.<br>Stay <span class="gradient-text">Secure.</span></h1>
-
-            <p>
-                Explore cybersecurity, master digital skills, and discover
-                resources built for the next generation of technology.
-                Welcome to a smarter digital future.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#products" class="btn btn-primary">EXPLORE PRODUCTS ↗</a>
-                <a href="#security" class="btn">DISCOVER NEXORA ↓</a>
-            </div>
-
-            <div class="hero-meta">
-                <div><strong>01 / LEARN</strong>Build real skills</div>
-                <div><strong>02 / PROTECT</strong>Think defensively</div>
-                <div><strong>03 / CREATE</strong>Build your future</div>
-            </div>
-        </div>
+  <img class="hero-image" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85" alt="Computer hardware and technology">
+  <div class="container hero-content">
+    <div class="status-pill"><i></i> DIGITAL KNOWLEDGE. REAL-WORLD SKILLS.</div>
+    <h1>Learn smarter.<br>Build <span class="green">securely.</span></h1>
+    <p>NEXORA is a digital learning brand focused on cybersecurity, Linux, and web development. Explore practical resources designed to help you build your skills from the ground up.</p>
+    <div class="hero-buttons">
+      <a href="#store" class="btn btn-primary">EXPLORE DIGITAL PRODUCTS ↗</a>
+      <a href="#about" class="btn">DISCOVER NEXORA</a>
     </div>
+    <div class="hero-meta">
+      <div><strong>CYBERSECURITY</strong>LEARN THE FUNDAMENTALS</div>
+      <div><strong>WEB DEVELOPMENT</strong>BUILD FROM ZERO</div>
+      <div><strong>LINUX</strong>MASTER THE TERMINAL</div>
+    </div>
+  </div>
 </header>
 
-<!-- STATS -->
 <div class="container">
-    <div class="stats reveal">
-        <div class="stat">
-            <h3>01</h3>
-            <p>Learn from zero</p>
-        </div>
-        <div class="stat">
-            <h3>24/7</h3>
-            <p>Keep exploring</p>
-        </div>
-        <div class="stat">
-            <h3>100%</h3>
-            <p>Growth mindset</p>
-        </div>
-        <div class="stat">
-            <h3>∞</h3>
-            <p>Possibilities</p>
-        </div>
-    </div>
+  <div class="stats">
+    <div class="stat"><strong>06</strong><span>Digital products</span></div>
+    <div class="stat"><strong>03</strong><span>Learning categories</span></div>
+    <div class="stat"><strong>24/7</strong><span>Explore anytime</span></div>
+    <div class="stat"><strong>01</strong><span>Your next step</span></div>
+  </div>
 </div>
 
-<!-- SECURITY -->
-<section class="section" id="security">
-    <div class="container">
-        <div class="section-heading reveal">
-            <div class="eyebrow">01 / WHAT WE DO</div>
-            <h2>Security is not a feature.<br>It's a <span class="gradient-text">mindset.</span></h2>
-            <p>
-                Technology moves fast. Understanding it gives you the power
-                to build better systems, recognize risks, and protect what matters.
-            </p>
-        </div>
-
-        <div class="cards">
-            <article class="card reveal">
-                <div class="card-icon">⌘</div>
-                <h3>Cybersecurity</h3>
-                <p>
-                    Learn the fundamentals of digital protection, threats,
-                    vulnerabilities, and responsible security practices.
-                </p>
-                <a class="card-link" href="#products">EXPLORE LEARNING ↗</a>
-            </article>
-
-            <article class="card reveal">
-                <div class="card-icon">⌁</div>
-                <h3>Ethical Hacking</h3>
-                <p>
-                    Understand how systems can fail and how authorized
-                    security testing helps identify weaknesses before attackers do.
-                </p>
-                <a class="card-link" href="#products">BUILD YOUR SKILLS ↗</a>
-            </article>
-
-            <article class="card reveal">
-                <div class="card-icon">⌨</div>
-                <h3>Digital Creation</h3>
-                <p>
-                    Start with HTML, CSS, and JavaScript. Turn ideas into
-                    websites, projects, and useful digital experiences.
-                </p>
-                <a class="card-link" href="#products">START CREATING ↗</a>
-            </article>
-        </div>
+<section class="section" id="expertise">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">WHAT WE EXPLORE</span>
+      <h2>Knowledge for the <span class="green">digital world.</span></h2>
+      <p>Build a foundation in the technologies that power modern digital life.</p>
     </div>
+    <div class="cards">
+      <article class="card"><div class="card-icon">⌘</div><h3>Cybersecurity</h3><p>Understand digital threats, security principles, and responsible ways to protect systems and information.</p><a class="card-link" href="#store">EXPLORE RESOURCES ↗</a></article>
+      <article class="card"><div class="card-icon">⌨</div><h3>Web Development</h3><p>Learn how HTML, CSS, and JavaScript work together to create modern websites.</p><a class="card-link" href="#store">START BUILDING ↗</a></article>
+      <article class="card"><div class="card-icon">$_</div><h3>Linux Essentials</h3><p>Become comfortable with the command line, files, directories, and everyday Linux tools.</p><a class="card-link" href="#store">LEARN LINUX ↗</a></article>
+    </div>
+  </div>
 </section>
 
-<!-- ABOUT -->
 <section class="section" id="about">
-    <div class="container about-grid">
-        <div class="about-visual reveal">
-            <img
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1000&q=85&auto=format&fit=crop"
-                alt="Technology hardware and circuit board"
-                loading="lazy"
-            >
-            <div class="about-overlay">
-                <strong>Knowledge is your advantage.</strong>
-                <span>LEARN. BUILD. SECURE.</span>
-            </div>
-        </div>
-
-        <div class="about-copy reveal">
-            <div class="eyebrow">02 / THE NEXORA MISSION</div>
-            <h2>Built for the curious.<br>Designed for the <span class="gradient-text">future.</span></h2>
-            <p>
-                NEXORA is a digital concept focused on technology,
-                cybersecurity, and accessible learning. The mission is simple:
-                make it easier to take the first step into a world of opportunity.
-            </p>
-
-            <ul class="check-list">
-                <li><span>✦</span> Beginner-friendly digital learning</li>
-                <li><span>✦</span> Practical web development concepts</li>
-                <li><span>✦</span> Security awareness and responsible testing</li>
-                <li><span>✦</span> Digital resources for continuous growth</li>
-            </ul>
-
-            <div style="margin-top:28px">
-                <a href="#products" class="btn btn-primary">FIND YOUR NEXT STEP ↗</a>
-            </div>
-        </div>
+  <div class="container about-grid">
+    <div class="about-visual">
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=85" alt="Digital learning and computer workspace" loading="lazy">
+      <div class="about-overlay"><strong>Curiosity is the starting point.</strong><span>NEXORA / LEARN. BUILD. IMPROVE.</span></div>
     </div>
+    <div class="about-copy">
+      <span class="eyebrow">ABOUT NEXORA</span>
+      <h2>Make your next skill <span class="green">count.</span></h2>
+      <p>NEXORA brings together digital learning resources for people who want to understand technology, practice new skills, and build their own projects.</p>
+      <ul class="check-list">
+        <li>Beginner-friendly learning resources</li>
+        <li>Practical examples and exercises</li>
+        <li>Cybersecurity and development topics</li>
+        <li>Learn at your own pace</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
-<!-- SECURITY MONITOR -->
-<section class="section monitor-section" id="monitor">
-    <div class="container">
-        <div class="section-heading reveal">
-            <div class="eyebrow">03 / LIVE INTERFACE DEMO</div>
-            <h2>Your security.<br>Your <span class="gradient-text">visibility.</span></h2>
-            <p>
-                Explore a simulated security dashboard. Run the demo scan
-                and see how a monitoring interface can respond.
-            </p>
-        </div>
-
-        <div class="monitor-layout">
-            <div class="panel reveal">
-                <div class="panel-header">
-                    <h3>SECURITY MONITOR</h3>
-                    <span><span class="status-dot" style="display:inline-block;margin-right:6px"></span> DEMO MODE</span>
-                </div>
-
-                <div class="panel-body">
-                    <div class="scan-status">
-                        <div class="scan-ring">⌁</div>
-                        <div>
-                            <strong id="scanTitle">System overview</strong>
-                            <p id="scanDescription">Ready to run a simulated scan.</p>
-                        </div>
-                    </div>
-
-                    <div class="scan-meta">
-                        <span>SCAN PROGRESS</span>
-                        <span id="scanPercent">0%</span>
-                    </div>
-
-                    <div class="progress-track">
-                        <div class="progress-fill" id="scanProgress"></div>
-                    </div>
-
-                    <div class="scan-results">
-                        <div class="scan-result">
-                            <strong id="checksValue">00</strong>
-                            <span>Checks</span>
-                        </div>
-                        <div class="scan-result">
-                            <strong id="alertsValue">00</strong>
-                            <span>Demo alerts</span>
-                        </div>
-                        <div class="scan-result">
-                            <strong id="riskValue">--</strong>
-                            <span>Demo status</span>
-                        </div>
-                    </div>
-
-                    <button class="btn btn-primary scan-button" id="scanButton">
-                        ▶ RUN SIMULATED SCAN
-                    </button>
-                </div>
-            </div>
-
-            <div class="panel reveal">
-                <div class="panel-header">
-                    <h3>ACTIVITY FEED</h3>
-                    <span>LOCAL DEMO</span>
-                </div>
-
-                <div class="panel-body">
-                    <ul class="activity-list" id="activityList">
-                        <li><span>Interface initialized</span><strong>READY</strong></li>
-                        <li><span>Monitor module</span><strong>ONLINE</strong></li>
-                        <li><span>Threat feed</span><strong>SIMULATED</strong></li>
-                        <li><span>External connection</span><strong>NONE</strong></li>
-                        <li><span>Scan engine</span><strong>IDLE</strong></li>
-                    </ul>
-
-                    <p style="font-size:10px;color:var(--muted);margin-top:18px;line-height:1.8">
-                        This dashboard generates example results in your browser.
-                        It does not inspect your computer or scan real networks.
-                    </p>
-                </div>
-            </div>
-        </div>
+<section class="section" id="monitor">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">INTERACTIVE DEMO</span>
+      <h2>Security <span class="green">monitor.</span></h2>
+      <p>Try this simulated interface to see how a simple monitoring dashboard can look. It does not scan your device or network.</p>
     </div>
+    <div class="monitor-layout">
+      <div class="panel">
+        <div class="panel-header"><h3>SECURITY OVERVIEW</h3><span>DEMO MODE</span></div>
+        <div class="panel-body">
+          <div class="scan-status"><div class="scan-ring" id="scanIcon">⌁</div><div><strong id="scanTitle">System demo ready</strong><p id="scanText">Run a simulated scan to see the interface.</p></div></div>
+          <div class="progress-track"><div class="progress-fill" id="scanProgress"></div></div>
+          <div class="scan-meta"><span id="scanStage">WAITING</span><span id="scanPercent">0%</span></div>
+          <div class="scan-results">
+            <div class="scan-result"><strong id="resultOne">--</strong><span>Checks</span></div>
+            <div class="scan-result"><strong id="resultTwo">--</strong><span>Alerts</span></div>
+            <div class="scan-result"><strong id="resultThree">--</strong><span>Status</span></div>
+          </div>
+          <button class="btn btn-primary scan-button" id="runScan">RUN SIMULATED SCAN ↗</button>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-header"><h3>ACTIVITY FEED</h3><span>EXAMPLE DATA</span></div>
+        <div class="panel-body">
+          <ul class="activity-list">
+            <li><span>Dashboard initialized</span><strong>READY</strong></li>
+            <li><span>Demo environment loaded</span><strong>OK</strong></li>
+            <li><span>Monitoring interface</span><strong>ACTIVE</strong></li>
+            <li><span>Live network access</span><strong>DISABLED</strong></li>
+            <li><span>Security scan engine</span><strong>SIMULATED</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- STORE -->
-<section class="section" id="products">
-    <div class="container">
-        <div class="store-top">
-            <div class="section-heading reveal">
-                <div class="eyebrow">04 / THE DIGITAL STORE</div>
-                <h2>Upgrade your <span class="gradient-text">knowledge.</span></h2>
-                <p>
-                    Explore the original six digital product concepts.
-                    Search, filter, and add items to the demo cart.
-                </p>
-            </div>
-        </div>
-
-        <div class="store-tools reveal">
-            <input
-                class="search-input"
-                type="search"
-                id="productSearch"
-                placeholder="Search digital products..."
-                aria-label="Search products"
-            >
-
-            <button class="filter-btn active" data-filter="all">ALL PRODUCTS</button>
-            <button class="filter-btn" data-filter="ebook">EBOOKS</button>
-            <button class="filter-btn" data-filter="course">COURSES</button>
-        </div>
-
-        <div class="product-grid" id="productGrid">
-
-            <!-- ORIGINAL PRODUCT 1 -->
-            <article class="product-card reveal" data-category="ebook" data-name="Cybersecurity Beginner Guide">
-                <div class="product-image">
-                    <img
-                        src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80&auto=format&fit=crop"
-                        alt="Cybersecurity and digital protection"
-                        loading="lazy"
-                    >
-                    <span class="product-type">EBOOK / 001</span>
-                </div>
-                <div class="product-content">
-                    <h3>Cybersecurity Beginner Guide</h3>
-                    <p>A starting point for understanding security concepts, threats, and safer digital habits.</p>
-                    <div class="product-bottom">
-                        <div class="price">€9.99<small>DIGITAL PRODUCT</small></div>
-                        <button class="buy-button" data-add="1">ADD TO CART +</button>
-                    </div>
-                </div>
-            </article>
-
-            <!-- ORIGINAL PRODUCT 2 -->
-            <article class="product-card reveal" data-category="ebook" data-name="Web Development From Zero">
-                <div class="product-image">
-                    <img
-                        src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80&auto=format&fit=crop"
-                        alt="Web development workspace"
-                        loading="lazy"
-                    >
-                    <span class="product-type">EBOOK / 002</span>
-                </div>
-                <div class="product-content">
-                    <h3>Web Development From Zero</h3>
-                    <p>Explore HTML, CSS, and the first steps toward creating your own websites.</p>
-                    <div class="product-bottom">
-                        <div class="price">€12.99<small>DIGITAL PRODUCT</small></div>
-                        <button class="buy-button" data-add="2">ADD TO CART +</button>
-                    </div>
-                </div>
-            </article>
-
-            <!-- ORIGINAL PRODUCT 3 -->
-            <article class="product-card reveal" data-category="ebook" data-name="Linux Essentials">
-                <div class="product-image">
-                    <img
-                        src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80&auto=format&fit=crop"
-                        alt="Computer hardware and technology"
-                        loading="lazy"
-                    >
-                    <span class="product-type">EBOOK / 003</span>
-                </div>
-                <div class="product-content">
-                    <h3>Linux Essentials</h3>
-                    <p>Discover the command line, file systems, permissions, and useful Linux basics.</p>
-                    <div class="product-bottom">
-                        <div class="price">€7.99<small>DIGITAL PRODUCT</small></div>
-                        <button class="buy-button" data-add="3">ADD TO CART +</button>
-                    </div>
-                </div>
-            </article>
-
-            <!-- ORIGINAL PRODUCT 4 -->
-            <article class="product-card reveal" data-category="course" data-name="Cybersecurity Fundamentals">
-                <div class="product-image">
-                    <img
-                        src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=800&q=80&auto=format&fit=crop"
-                        alt="Computer workstation"
-                        loading="lazy"
-                    >
-                    <span class="product-type">COURSE / 004</span>
-                </div>
-                <div class="product-content">
-                    <h3>Cybersecurity Fundamentals</h3>
-                    <p>Build a foundation in security principles, common risks, and defense strategies.</p>
-                    <div class="product-bottom">
-                        <div class="price">€29.99<small>DIGITAL PRODUCT</small></div>
-                        <button class="buy-button" data-add="4">ADD TO CART +</button>
-                    </div>
-                </div>
-            </article>
-
-            <!-- ORIGINAL PRODUCT 5 -->
-            <article class="product-card reveal" data-category="course" data-name="Ethical Hacking Basics">
-                <div class="product-image">
-                    <img
-                        src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80&auto=format&fit=crop"
-                        alt="Cybersecurity technology"
-                        loading="lazy"
-                    >
-                    <span class="product-type">COURSE / 005</span>
-                </div>
-                <div class="product-content">
-                    <h3>Ethical Hacking Basics</h3>
-                    <p>Understand authorized testing, reconnaissance concepts, and responsible security work.</p>
-                    <div class="product-bottom">
-                        <div class="price">€39.99<small>DIGITAL PRODUCT</small></div>
-                        <button class="buy-button" data-add="5">ADD TO CART +</button>
-                    </div>
-                </div>
-            </article>
-
-            <!-- ORIGINAL PRODUCT 6 -->
-            <article class="product-card reveal" data-category="course" data-name="Build Your First Website">
-                <div class="product-image">
-                    <img
-                        src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80&auto=format&fit=crop"
-                        alt="Website source code on a screen"
-                        loading="lazy"
-                    >
-                    <span class="product-type">COURSE / 006</span>
-                </div>
-                <div class="product-content">
-                    <h3>Build Your First Website</h3>
-                    <p>Go from a blank HTML file to a styled website with practical beginner projects.</p>
-                    <div class="product-bottom">
-                        <div class="price">€34.99<small>DIGITAL PRODUCT</small></div>
-                        <button class="buy-button" data-add="6">ADD TO CART +</button>
-                    </div>
-                </div>
-            </article>
-
-        </div>
-
-        <div class="no-products" id="noProducts">
-            No matching products. Try another search.
-        </div>
-
-        <p style="color:var(--muted);font-size:10px;margin-top:22px">
-            Demo catalog: product descriptions, checkout, and digital delivery still need to be configured before selling.
-        </p>
+<section class="section" id="store">
+  <div class="container">
+    <div class="store-top">
+      <div class="section-heading">
+        <span class="eyebrow">THE DIGITAL STORE</span>
+        <h2>Tools for your <span class="green">next level.</span></h2>
+        <p>Choose a resource, open its details, and explore a sample of what it covers.</p>
+      </div>
     </div>
+    <div class="store-tools">
+      <input class="search-input" type="search" id="productSearch" placeholder="Search products..." aria-label="Search products">
+      <button class="filter-btn active" data-filter="all">All products</button>
+      <button class="filter-btn" data-filter="guide">Guides</button>
+      <button class="filter-btn" data-filter="course">Courses</button>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+      <article class="product-card" data-name="Cybersecurity Beginner Guide" data-category="guide" tabindex="0" role="button" aria-label="View Cybersecurity Beginner Guide details">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=700&q=80" alt="Digital security" loading="lazy"><span class="product-type">BEGINNER GUIDE</span></div>
+        <div class="product-content"><h3>Cybersecurity Beginner Guide</h3><p>Discover common online threats and learn the fundamentals of digital safety.</p><div class="product-bottom"><div class="price">€9.99<small>DIGITAL RESOURCE</small></div><button class="buy-button" data-buy="Cybersecurity Beginner Guide">VIEW PRODUCT ↗</button></div></div>
+      </article>
+
+      <article class="product-card" data-name="Web Development From Zero" data-category="course" tabindex="0" role="button" aria-label="View Web Development From Zero details">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=700&q=80" alt="Web development workspace" loading="lazy"><span class="product-type">LEARNING COURSE</span></div>
+        <div class="product-content"><h3>Web Development From Zero</h3><p>Start learning HTML, CSS, and JavaScript with beginner-friendly examples.</p><div class="product-bottom"><div class="price">€12.99<small>DIGITAL RESOURCE</small></div><button class="buy-button" data-buy="Web Development From Zero">VIEW PRODUCT ↗</button></div></div>
+      </article>
+
+      <article class="product-card" data-name="Linux Essentials" data-category="guide" tabindex="0" role="button" aria-label="View Linux Essentials details">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=700&q=80" alt="Linux terminal" loading="lazy"><span class="product-type">LINUX GUIDE</span></div>
+        <div class="product-content"><h3>Linux Essentials</h3><p>Get comfortable with the terminal, file management, and essential commands.</p><div class="product-bottom"><div class="price">€7.99<small>DIGITAL RESOURCE</small></div><button class="buy-button" data-buy="Linux Essentials">VIEW PRODUCT ↗</button></div></div>
+      </article>
+
+      <article class="product-card" data-name="Cybersecurity Fundamentals" data-category="course" tabindex="0" role="button" aria-label="View Cybersecurity Fundamentals details">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=700&q=80" alt="Cybersecurity workstation" loading="lazy"><span class="product-type">CORE COURSE</span></div>
+        <div class="product-content"><h3>Cybersecurity Fundamentals</h3><p>Explore security principles, risks, vulnerabilities, and protective controls.</p><div class="product-bottom"><div class="price">€29.99<small>DIGITAL RESOURCE</small></div><button class="buy-button" data-buy="Cybersecurity Fundamentals">VIEW PRODUCT ↗</button></div></div>
+      </article>
+
+      <article class="product-card" data-name="Ethical Hacking Basics" data-category="course" tabindex="0" role="button" aria-label="View Ethical Hacking Basics details">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=700&q=80" alt="Cybersecurity digital illustration" loading="lazy"><span class="product-type">PRACTICAL LEARNING</span></div>
+        <div class="product-content"><h3>Ethical Hacking Basics</h3><p>Learn how authorized security testing works in safe practice environments.</p><div class="product-bottom"><div class="price">€39.99<small>DIGITAL RESOURCE</small></div><button class="buy-button" data-buy="Ethical Hacking Basics">VIEW PRODUCT ↗</button></div></div>
+      </article>
+
+      <article class="product-card" data-name="Build Your First Website" data-category="course" tabindex="0" role="button" aria-label="View Build Your First Website details">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=700&q=80" alt="Website design on screen" loading="lazy"><span class="product-type">BUILD A PROJECT</span></div>
+        <div class="product-content"><h3>Build Your First Website</h3><p>Follow a practical path from your first HTML file to publishing a website.</p><div class="product-bottom"><div class="price">€34.99<small>DIGITAL RESOURCE</small></div><button class="buy-button" data-buy="Build Your First Website">VIEW PRODUCT ↗</button></div></div>
+      </article>
+    </div>
+    <div class="no-products" id="noProducts">No products match your search.</div>
+    <p style="color:var(--muted);font-size:10px;margin-top:20px">Product descriptions and previews are illustrative until the final downloadable resources are prepared. Checkout is not enabled in this demo.</p>
+  </div>
 </section>
 
-<!-- TERMINAL -->
 <section class="section" id="terminal">
-    <div class="container">
-        <div class="section-heading reveal">
-            <div class="eyebrow">05 / INTERACTIVE TERMINAL</div>
-            <h2>Enter the <span class="gradient-text">command line.</span></h2>
-            <p>
-                Try a few fictional NEXORA commands. This terminal is a browser
-                simulation and does not execute operating-system commands.
-            </p>
-        </div>
-
-        <div class="terminal reveal">
-            <div class="terminal-top">
-                <div class="terminal-dots"><span></span><span></span><span></span></div>
-                <p>nexora@web-terminal: ~</p>
-                <p>LOCAL DEMO</p>
-            </div>
-
-            <div class="terminal-body">
-                <div id="terminalOutput">
-                    <div class="terminal-line">NEXORA INTERACTIVE TERMINAL v1.0</div>
-                    <div class="terminal-line">Type <span class="terminal-prompt">help</span> to see available commands.</div>
-                    <div class="terminal-line" style="color:#607a68">This is a simulated terminal — not a real shell.</div>
-                </div>
-
-                <form class="terminal-input-row" id="terminalForm">
-                    <label for="terminalInput" class="terminal-prompt">nexora $</label>
-                    <input class="terminal-input" id="terminalInput" autocomplete="off" spellcheck="false" placeholder="type a command..." aria-label="Terminal command">
-                </form>
-
-                <p class="terminal-help">Available commands: help, about, status, skills, clear, date</p>
-            </div>
-        </div>
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">INTERACTIVE TERMINAL</span>
+      <h2>Explore the <span class="green">command line.</span></h2>
+      <p>Try a few safe demo commands in this simulated terminal.</p>
     </div>
+    <div class="terminal">
+      <div class="terminal-top"><span>NEXORA TERMINAL</span><span class="green">DEMO ENVIRONMENT</span></div>
+      <div class="terminal-output" id="terminalOutput">NEXORA interactive terminal [demo]
+This is a simulated terminal, not a real shell.
+Type "help" to see available commands.
+
+visitor@nexora:~$</div>
+      <form class="terminal-form" id="terminalForm"><span>visitor@nexora:~$</span><input id="terminalInput" autocomplete="off" aria-label="Terminal command" placeholder="Type help and press Enter"></form>
+    </div>
+  </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="section" id="reviews">
-    <div class="container">
-        <div class="section-heading reveal">
-            <div class="eyebrow">06 / COMMUNITY</div>
-            <h2>Built around <span class="gradient-text">curiosity.</span></h2>
-            <p>
-                A sample testimonial section showing how future customer feedback
-                could look. These are design placeholders, not verified reviews.
-            </p>
-        </div>
-
-        <div class="testimonial-grid">
-            <article class="testimonial reveal">
-                <div class="stars">★★★★★</div>
-                <blockquote>
-                    "A clean, focused layout that makes technology feel more
-                    approachable. Exactly the kind of design a learning platform needs."
-                </blockquote>
-                <div class="person">
-                    <div class="avatar">A</div>
-                    <div><strong>Alex Morgan</strong><span>Sample reviewer</span></div>
-                </div>
-            </article>
-
-            <article class="testimonial reveal">
-                <div class="stars">★★★★★</div>
-                <blockquote>
-                    "The combination of the dark interface, green accents, and
-                    interactive elements creates a strong technology identity."
-                </blockquote>
-                <div class="person">
-                    <div class="avatar">J</div>
-                    <div><strong>Jordan Lee</strong><span>Sample reviewer</span></div>
-                </div>
-            </article>
-
-            <article class="testimonial reveal">
-                <div class="stars">★★★★★</div>
-                <blockquote>
-                    "A promising concept for bringing digital learning and
-                    beginner-friendly security resources together."
-                </blockquote>
-                <div class="person">
-                    <div class="avatar">S</div>
-                    <div><strong>Sam Taylor</strong><span>Sample reviewer</span></div>
-                </div>
-            </article>
-        </div>
-    </div>
-</section>
-
-<!-- FAQ -->
 <section class="section" id="faq">
-    <div class="container">
-        <div class="section-heading reveal">
-            <div class="eyebrow">07 / QUESTIONS</div>
-            <h2>Good questions.<br><span class="gradient-text">Clear answers.</span></h2>
-        </div>
-
-        <div class="faq-list reveal">
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                    What is NEXORA? <span>+</span>
-                </button>
-                <div class="faq-answer">
-                    NEXORA is a cybersecurity and digital-learning website concept.
-                    It combines educational product ideas, a security dashboard demo,
-                    and interactive frontend features.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                    Can I purchase products on this version? <span>+</span>
-                </button>
-                <div class="faq-answer">
-                    Not yet. The cart calculates a demo total, but it does not charge
-                    a card or deliver files. A real store needs a payment provider,
-                    a backend or supported commerce platform, and digital delivery.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                    Does the security monitor scan real systems? <span>+</span>
-                </button>
-                <div class="faq-answer">
-                    No. It generates simulated results locally in the browser.
-                    It is a visual demonstration, not a security scanner.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                    Can I edit this website myself? <span>+</span>
-                </button>
-                <div class="faq-answer">
-                    Yes. You can change text in the HTML, colors in the CSS,
-                    and interactive behavior in the JavaScript section at the bottom.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">
-                    Can this website work on phones? <span>+</span>
-                </button>
-                <div class="faq-answer">
-                    Yes. The layout adapts to smaller screens with a mobile navigation
-                    menu, responsive product cards, and a mobile-friendly cart drawer.
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">HELP CENTER</span>
+      <h2>Frequently asked <span class="green">questions.</span></h2>
     </div>
+    <div class="faq-list">
+      <details><summary>What is NEXORA?</summary><p>NEXORA is a digital learning brand focused on cybersecurity, Linux, and web development resources.</p></details>
+      <details><summary>Can I purchase products right now?</summary><p>This version is a website demo. Real payment processing and digital delivery have not been connected yet.</p></details>
+      <details><summary>How will I receive a digital product?</summary><p>Automatic file delivery needs to be configured before the store launches. The current demo does not deliver files.</p></details>
+      <details><summary>Are the products suitable for beginners?</summary><p>The resources are planned around beginner-friendly learning. Check each product's final contents before purchase becomes available.</p></details>
+      <details><summary>Does the security monitor scan real systems?</summary><p>No. The monitor is an interactive visual demo and does not access your computer, network, or accounts.</p></details>
+    </div>
+  </div>
 </section>
 
-<!-- NEWSLETTER -->
-<section class="section">
-    <div class="container">
-        <div class="newsletter reveal">
-            <div>
-                <div class="eyebrow">08 / STAY IN THE LOOP</div>
-                <h2>Stay curious.<br><span class="gradient-text">Stay ahead.</span></h2>
-                <p>
-                    A newsletter signup concept for future updates, learning resources,
-                    and new digital products.
-                </p>
-            </div>
-
-            <form class="newsletter-form" id="newsletterForm">
-                <input type="email" id="newsletterEmail" placeholder="Your email address" aria-label="Your email address" required>
-                <button class="btn btn-primary" type="submit">JOIN ↗</button>
-            </form>
-        </div>
-    </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-    <div class="container">
-        <div class="footer-top">
-            <div class="footer-brand">
-                <a href="#home" class="logo">
-                    <span class="logo-mark">N</span>
-                    NEX<span>ORA</span>
-                </a>
-                <p>
-                    Think ahead. Stay secure. Explore the digital world with
-                    curiosity, creativity, and responsibility.
-                </p>
-            </div>
-
-            <div class="footer-links">
-                <h4>EXPLORE</h4>
-                <a href="#home">Home</a>
-                <a href="#about">About NEXORA</a>
-                <a href="#security">Cybersecurity</a>
-                <a href="#monitor">Security Monitor</a>
-            </div>
-
-            <div class="footer-links">
-                <h4>THE STORE</h4>
-                <a href="#products">All products</a>
-                <a href="#products" data-footer-filter="ebook">Ebooks</a>
-                <a href="#products" data-footer-filter="course">Courses</a>
-                <a href="#faq">Frequently asked questions</a>
-            </div>
-
-            <div class="footer-links">
-                <h4>IMPORTANT</h4>
-                <a href="#faq">Demo limitations</a>
-                <a href="#terminal">Interactive terminal</a>
-                <a href="#home">Back to top ↑</a>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <span>© <span id="year"></span> NEXORA. All rights reserved.</span>
-            <span>DESIGNED FOR THE DIGITAL FUTURE <span style="color:var(--green)">●</span></span>
-        </div>
-    </div>
+  <div class="container footer-inner">
+    <a class="logo" href="#home"><span class="logo-mark">N</span>NEX<span>ORA</span></a>
+    <span>© <span id="year"></span> NEXORA. Learn. Build. Improve.</span>
+    <div class="footer-links"><a href="#about">About</a><a href="#store">Store</a><a href="#faq">FAQ</a></div>
+  </div>
 </footer>
 
-<!-- CART DRAWER -->
-<div class="drawer-backdrop" id="drawerBackdrop"></div>
-
-<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
-    <div class="drawer-header">
-        <h2>Your Cart <span class="gradient-text">.</span></h2>
-        <button class="close-button" id="closeCart" aria-label="Close cart">✕</button>
+<!-- PRODUCT DETAILS WINDOW -->
+<div class="modal" id="productModal" role="presentation">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="close-button" id="closeProduct" aria-label="Close product details">✕</button>
+    <div class="modal-label">NEXORA DIGITAL STORE / PRODUCT DETAILS</div>
+    <h2 class="modal-title" id="modalTitle"></h2>
+    <p class="modal-description" id="modalDescription"></p>
+    <div class="modal-price" id="modalPrice"></div>
+    <div class="modal-grid">
+      <section class="modal-section"><h4>WHAT'S INCLUDED</h4><ul id="modalContents"></ul></section>
+      <section class="modal-section"><h4>WHO IT'S FOR</h4><p id="modalAudience"></p></section>
     </div>
+    <section class="modal-section"><h4>PREVIEW / EXAMPLE</h4><pre class="preview" id="modalPreview"></pre></section>
+    <button class="modal-add" id="modalAdd">ADD TO DEMO CART +</button>
+    <p class="modal-note">Preview content is illustrative. Checkout and digital delivery are not yet enabled.</p>
+  </div>
+</div>
 
-    <div class="cart-items" id="cartItems">
-        <div class="empty-cart">Your cart is empty.<br><br>Explore the store to add something.</div>
-    </div>
-
-    <div class="cart-summary">
-        <div class="cart-total">
-            <span>Demo total</span>
-            <strong id="cartTotal">€0.00</strong>
-        </div>
-        <button class="btn btn-primary" id="checkoutButton">CONTINUE ↗</button>
-        <p class="cart-note">
-            Demo only. No payment will be taken. Real checkout requires
-            payment integration and secure order processing.
-        </p>
-    </div>
-</aside>
-
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-<button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+<!-- DEMO CART WINDOW -->
+<div class="modal" id="cartModal" role="presentation">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <button class="close-button" id="closeCart" aria-label="Close cart">✕</button>
+    <div class="modal-label">NEXORA DIGITAL STORE</div>
+    <h2 class="modal-title" id="cartTitle">Your <span class="green">cart.</span></h2>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-total"><span>Total</span><span id="cartTotal">€0.00</span></div>
+    <button class="modal-add" id="checkoutButton">CONTINUE TO CHECKOUT</button>
+    <p class="modal-note">Demo only: no payment is collected and no products are delivered.</p>
+  </div>
+</div>
 
 <script>
-/* ======================================
-   NEXORA INTERACTIVE FEATURES
-   ====================================== */
-
-// Product catalog
 const products = {
-    1: { name: "Cybersecurity Beginner Guide", price: 9.99 },
-    2: { name: "Web Development From Zero", price: 12.99 },
-    3: { name: "Linux Essentials", price: 7.99 },
-    4: { name: "Cybersecurity Fundamentals", price: 29.99 },
-    5: { name: "Ethical Hacking Basics", price: 39.99 },
-    6: { name: "Build Your First Website", price: 34.99 }
+  "Cybersecurity Beginner Guide": {
+    price:9.99,
+    description:"An introduction to cybersecurity, common online threats, and practical digital safety habits.",
+    contents:["Common cyber threats and phishing","Passwords and account protection","Social engineering examples","Personal security checklist"],
+    audience:"People starting cybersecurity with little or no previous experience.",
+    preview:`NEXORA SECURITY NOTES
+
+THREAT: Phishing
+GOAL: Trick a user into revealing information
+
+WARNING SIGNS:
+- Unexpected urgency
+- Suspicious links
+- Requests for passwords
+
+DEFENCE:
+Verify the sender before clicking.`
+  },
+  "Web Development From Zero": {
+    price:12.99,
+    description:"Explore how websites are structured, styled, and made interactive using the core web technologies.",
+    contents:["HTML structure and page elements","CSS colors, layouts, and typography","JavaScript fundamentals","A small website project"],
+    audience:"Complete beginners who want to understand how websites are built.",
+    preview:`<!DOCTYPE html>
+<html>
+  <body>
+    <h1>My First Website</h1>
+    <p>Hello, world!</p>
+  </body>
+</html>`
+  },
+  "Linux Essentials": {
+    price:7.99,
+    description:"An introduction to the Linux terminal, file management, directories, and permissions.",
+    contents:["Navigate directories","Create and manage files","Understand permissions","Practice essential commands"],
+    audience:"Beginners learning Linux for IT, system administration, or cybersecurity.",
+    preview:`pwd                 # Show current directory
+ls -la              # List all files
+mkdir practice      # Create a directory
+cd practice         # Enter the directory
+touch notes.txt     # Create a file
+cat notes.txt       # Read a file`
+  },
+  "Cybersecurity Fundamentals": {
+    price:29.99,
+    description:"Explore the principles used to protect systems, networks, accounts, and information.",
+    contents:["Confidentiality, integrity, availability","Threats and vulnerabilities","Network security basics","Security scenarios and review questions"],
+    audience:"Learners who want a structured cybersecurity foundation.",
+    preview:`SECURITY SCENARIO
+
+Asset: User account
+Threat: Password theft
+
+Possible controls:
+- Multi-factor authentication
+- Unique passwords
+- Login alerts
+- Recovery options`
+  },
+  "Ethical Hacking Basics": {
+    price:39.99,
+    description:"Discover the ethical hacking process and how authorized security testing works.",
+    contents:["Permission and rules of engagement","Reconnaissance concepts","Common web security weaknesses","Reporting findings and fixes"],
+    audience:"Beginners interested in penetration testing and responsible security research.",
+    preview:`AUTHORIZED LAB WORKFLOW
+
+1. Confirm written permission
+2. Define the test scope
+3. Gather permitted information
+4. Test within the agreed scope
+5. Document findings
+6. Recommend fixes`
+  },
+  "Build Your First Website": {
+    price:34.99,
+    description:"A practical introduction to creating a website and preparing it for publication.",
+    contents:["Plan a page layout","Build the HTML structure","Style the page with CSS","Publish a static website"],
+    audience:"New developers who want to create and publish their first project.",
+    preview:`/* Example CSS */
+body {
+  background: #080d0a;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #00ff88;
+}`
+  }
 };
 
+const productModal = document.getElementById("productModal");
+const cartModal = document.getElementById("cartModal");
+let selectedProduct = "";
+let activeFilter = "all";
 const cart = {};
 
-// Toast notifications
-let toastTimer;
-
-function showToast(message) {
-    const toast = document.getElementById("toast");
-    toast.textContent = message;
-    toast.classList.add("show");
-
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => {
-        toast.classList.remove("show");
-    }, 2600);
+function money(value) {
+  return "€" + value.toFixed(2);
 }
 
-// Mobile navigation
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
+function openModal(modal) {
+  modal.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
 
-menuToggle.addEventListener("click", () => {
-    const isOpen = navLinks.classList.toggle("open");
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
-    menuToggle.textContent = isOpen ? "✕" : "☰";
-});
+function closeModal(modal) {
+  modal.classList.remove("open");
+  if (!document.querySelector(".modal.open")) {
+    document.body.style.overflow = "";
+  }
+}
 
-navLinks.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.textContent = "☰";
+function openProduct(name) {
+  const product = products[name];
+  if (!product) return;
+  selectedProduct = name;
+
+  document.getElementById("modalTitle").textContent = name;
+  document.getElementById("modalDescription").textContent = product.description;
+  document.getElementById("modalPrice").textContent = money(product.price);
+  document.getElementById("modalAudience").textContent = product.audience;
+  document.getElementById("modalPreview").textContent = product.preview;
+
+  const list = document.getElementById("modalContents");
+  list.replaceChildren();
+
+  product.contents.forEach(text => {
+    const li = document.createElement("li");
+    li.textContent = text;
+    list.appendChild(li);
+  });
+
+  openModal(productModal);
+}
+
+function updateCart() {
+  const count = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
+  document.getElementById("cartCount").textContent = count;
+
+  const container = document.getElementById("cartItems");
+  container.replaceChildren();
+  let total = 0;
+
+  Object.entries(cart).forEach(([name, qty]) => {
+    const product = products[name];
+    total += product.price * qty;
+
+    const row = document.createElement("div");
+    row.className = "cart-item";
+
+    const title = document.createElement("span");
+    title.textContent = name + " × " + qty;
+
+    const right = document.createElement("div");
+    right.style.display = "flex";
+    right.style.alignItems = "center";
+    right.style.gap = "10px";
+
+    const price = document.createElement("span");
+    price.textContent = money(product.price * qty);
+
+    const remove = document.createElement("button");
+    remove.textContent = "Remove";
+    remove.setAttribute("aria-label", "Remove " + name);
+    remove.addEventListener("click", () => {
+      delete cart[name];
+      updateCart();
     });
+
+    right.append(price, remove);
+    row.append(title, right);
+    container.appendChild(row);
+  });
+
+  if (count === 0) {
+    const empty = document.createElement("p");
+    empty.style.color = "var(--muted)";
+    empty.textContent = "Your cart is empty. Explore the store to add a product.";
+    container.appendChild(empty);
+  }
+
+  document.getElementById("cartTotal").textContent = money(total);
+}
+
+function addToCart(name) {
+  if (!products[name]) return;
+  cart[name] = (cart[name] || 0) + 1;
+  updateCart();
+  closeModal(productModal);
+  openModal(cartModal);
+}
+
+document.querySelectorAll(".product-card").forEach(card => {
+  const name = card.dataset.name;
+
+  card.addEventListener("click", event => {
+    if (event.target.closest("button")) return;
+    openProduct(name);
+  });
+
+  card.addEventListener("keydown", event => {
+    if (event.target !== card) return;
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openProduct(name);
+    }
+  });
 });
 
-// Cart drawer
-const cartDrawer = document.getElementById("cartDrawer");
-const drawerBackdrop = document.getElementById("drawerBackdrop");
+document.querySelectorAll("[data-buy]").forEach(button => {
+  button.addEventListener("click", event => {
+    event.stopPropagation();
+    openProduct(button.dataset.buy);
+  });
+});
 
-function openCart() {
-    cartDrawer.classList.add("open");
-    drawerBackdrop.classList.add("open");
-    cartDrawer.setAttribute("aria-hidden", "false");
-    document.getElementById("closeCart").focus();
-}
+document.getElementById("closeProduct").addEventListener("click", () => closeModal(productModal));
+document.getElementById("closeCart").addEventListener("click", () => closeModal(cartModal));
+document.getElementById("modalAdd").addEventListener("click", () => addToCart(selectedProduct));
+document.getElementById("openCart").addEventListener("click", () => {
+  updateCart();
+  openModal(cartModal);
+});
 
-function closeCart() {
-    cartDrawer.classList.remove("open");
-    drawerBackdrop.classList.remove("open");
-    cartDrawer.setAttribute("aria-hidden", "true");
-}
-
-document.getElementById("openCart").addEventListener("click", openCart);
-document.getElementById("closeCart").addEventListener("click", closeCart);
-drawerBackdrop.addEventListener("click", closeCart);
+[productModal, cartModal].forEach(modal => {
+  modal.addEventListener("click", event => {
+    if (event.target === modal) closeModal(modal);
+  });
+});
 
 document.addEventListener("keydown", event => {
-    if (event.key === "Escape") closeCart();
+  if (event.key === "Escape") {
+    closeModal(productModal);
+    closeModal(cartModal);
+  }
 });
-
-// Add items to cart
-document.querySelectorAll("[data-add]").forEach(button => {
-    button.addEventListener("click", () => {
-        const id = button.dataset.add;
-
-        if (!cart[id]) {
-            cart[id] = 0;
-        }
-
-        cart[id]++;
-        updateCart();
-        showToast(products[id].name + " added to your demo cart.");
-    });
-});
-
-// Render the cart from its current state
-function updateCart() {
-    const cartItems = document.getElementById("cartItems");
-    const cartCount = document.getElementById("cartCount");
-    const cartTotal = document.getElementById("cartTotal");
-
-    const entries = Object.entries(cart).filter(([, quantity]) => quantity > 0);
-
-    const totalQuantity = entries.reduce((sum, [, quantity]) => sum + quantity, 0);
-
-    const totalPrice = entries.reduce((sum, [id, quantity]) => {
-        return sum + products[id].price * quantity;
-    }, 0);
-
-    cartCount.textContent = totalQuantity;
-    cartTotal.textContent = "€" + totalPrice.toFixed(2);
-
-    if (entries.length === 0) {
-        cartItems.innerHTML =
-            '<div class="empty-cart">Your cart is empty.<br><br>Explore the store to add something.</div>';
-        return;
-    }
-
-    cartItems.innerHTML = entries.map(([id, quantity]) => {
-        const product = products[id];
-
-        return `
-            <div class="cart-item">
-                <div>
-                    <h4>${product.name}</h4>
-                    <p>€${product.price.toFixed(2)} each</p>
-                    <div class="quantity-controls">
-                        <button data-change="${id}" data-delta="-1" aria-label="Decrease quantity">−</button>
-                        <span>${quantity}</span>
-                        <button data-change="${id}" data-delta="1" aria-label="Increase quantity">+</button>
-                    </div>
-                    <button class="remove-item" data-remove="${id}">REMOVE</button>
-                </div>
-                <strong>€${(product.price * quantity).toFixed(2)}</strong>
-            </div>
-        `;
-    }).join("");
-
-    cartItems.querySelectorAll("[data-change]").forEach(button => {
-        button.addEventListener("click", () => {
-            const id = button.dataset.change;
-            const delta = Number(button.dataset.delta);
-
-            cart[id] += delta;
-
-            if (cart[id] <= 0) {
-                delete cart[id];
-            }
-
-            updateCart();
-        });
-    });
-
-    cartItems.querySelectorAll("[data-remove]").forEach(button => {
-        button.addEventListener("click", () => {
-            delete cart[button.dataset.remove];
-            updateCart();
-            showToast("Item removed from your demo cart.");
-        });
-    });
-}
 
 document.getElementById("checkoutButton").addEventListener("click", () => {
-    showToast("Demo checkout only — no payment has been taken.");
+  alert("This is a demo store. Secure payment processing and digital delivery have not been connected yet.");
 });
 
-// Product search and filters
-let activeFilter = "all";
-
+/* SEARCH AND FILTERS */
 const searchInput = document.getElementById("productSearch");
 const productCards = [...document.querySelectorAll(".product-card")];
-const filterButtons = [...document.querySelectorAll(".filter-btn")];
 
 function filterProducts() {
-    const query = searchInput.value.trim().toLowerCase();
-    let visibleCount = 0;
+  const term = searchInput.value.toLowerCase().trim();
+  let visible = 0;
 
-    productCards.forEach(card => {
-        const matchesSearch = card.dataset.name.toLowerCase().includes(query);
-        const matchesFilter = activeFilter === "all" ||
-            card.dataset.category === activeFilter;
+  productCards.forEach(card => {
+    const matchesText = card.textContent.toLowerCase().includes(term);
+    const matchesCategory = activeFilter === "all" || card.dataset.category === activeFilter;
+    const show = matchesText && matchesCategory;
+    card.style.display = show ? "" : "none";
+    if (show) visible++;
+  });
 
-        const visible = matchesSearch && matchesFilter;
-
-        card.style.display = visible ? "" : "none";
-
-        if (visible) visibleCount++;
-    });
-
-    document.getElementById("noProducts").style.display =
-        visibleCount === 0 ? "block" : "none";
+  document.getElementById("noProducts").style.display = visible ? "none" : "block";
 }
 
 searchInput.addEventListener("input", filterProducts);
 
-filterButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        activeFilter = button.dataset.filter;
-
-        filterButtons.forEach(item => item.classList.remove("active"));
-        button.classList.add("active");
-
-        filterProducts();
-    });
+document.querySelectorAll("[data-filter]").forEach(button => {
+  button.addEventListener("click", () => {
+    activeFilter = button.dataset.filter;
+    document.querySelectorAll("[data-filter]").forEach(item => item.classList.remove("active"));
+    button.classList.add("active");
+    filterProducts();
+  });
 });
 
-document.querySelectorAll("[data-footer-filter]").forEach(link => {
-    link.addEventListener("click", () => {
-        activeFilter = link.dataset.footerFilter;
-
-        filterButtons.forEach(button => {
-            button.classList.toggle("active", button.dataset.filter === activeFilter);
-        });
-
-        filterProducts();
-    });
+/* MOBILE MENU */
+document.getElementById("menuToggle").addEventListener("click", () => {
+  document.getElementById("navLinks").classList.toggle("show");
 });
 
-// Simulated security scan
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => document.getElementById("navLinks").classList.remove("show"));
+});
+
+/* SIMULATED SECURITY MONITOR */
 let scanRunning = false;
 
-document.getElementById("scanButton").addEventListener("click", () => {
-    if (scanRunning) return;
+document.getElementById("runScan").addEventListener("click", () => {
+  if (scanRunning) return;
+  scanRunning = true;
 
-    scanRunning = true;
+  const button = document.getElementById("runScan");
+  const progress = document.getElementById("scanProgress");
+  const title = document.getElementById("scanTitle");
+  const text = document.getElementById("scanText");
+  const stage = document.getElementById("scanStage");
+  const percent = document.getElementById("scanPercent");
+  const icon = document.getElementById("scanIcon");
 
-    const button = document.getElementById("scanButton");
-    const progress = document.getElementById("scanProgress");
-    const percent = document.getElementById("scanPercent");
-    const title = document.getElementById("scanTitle");
-    const description = document.getElementById("scanDescription");
-    const checks = document.getElementById("checksValue");
-    const alerts = document.getElementById("alertsValue");
-    const risk = document.getElementById("riskValue");
-    const activity = document.getElementById("activityList");
+  button.disabled = true;
+  button.textContent = "SIMULATION RUNNING...";
+  title.textContent = "Simulated scan running";
+  text.textContent = "Displaying example scan progress.";
+  icon.textContent = "↻";
 
-    button.disabled = true;
-    button.textContent = "SCANNING DEMO...";
-    progress.style.width = "0%";
-    percent.textContent = "0%";
-    title.textContent = "Simulation running";
-    description.textContent = "Generating example scan results...";
-    checks.textContent = "00";
-    alerts.textContent = "00";
-    risk.textContent = "--";
+  let value = 0;
+  const stages = ["INITIALIZING DEMO", "CHECKING EXAMPLE DATA", "ANALYZING SIMULATION", "COMPLETE"];
 
-    activity.innerHTML = `
-        <li><span>Demo scan started</span><strong>RUNNING</strong></li>
-        <li><span>Example checks</span><strong>QUEUED</strong></li>
-        <li><span>External network scan</span><strong>DISABLED</strong></li>
-        <li><span>Live threat feed</span><strong>DISABLED</strong></li>
-        <li><span>Scan engine</span><strong>SIMULATED</strong></li>
-    `;
+  const timer = setInterval(() => {
+    value += 5;
+    progress.style.width = value + "%";
+    percent.textContent = value + "%";
+    stage.textContent = stages[Math.min(3, Math.floor(value / 30))];
 
-    let current = 0;
-
-    const scanTimer = setInterval(() => {
-        current += 10;
-        progress.style.width = current + "%";
-        percent.textContent = current + "%";
-
-        if (current >= 30) {
-            checks.textContent = "03";
-            description.textContent = "Processing sample checks...";
-        }
-
-        if (current >= 60) {
-            checks.textContent = "06";
-            description.textContent = "Preparing example results...";
-        }
-
-        if (current >= 100) {
-            clearInterval(scanTimer);
-
-            // These are illustrative results, not actual security findings.
-            alerts.textContent = "00";
-            risk.textContent = "DEMO";
-            title.textContent = "Simulation complete";
-            description.textContent = "Example results generated successfully.";
-
-            activity.innerHTML = `
-                <li><span>Demo scan</span><strong>COMPLETE</strong></li>
-                <li><span>Example checks</span><strong>06 DONE</strong></li>
-                <li><span>Demo alerts generated</span><strong>00</strong></li>
-                <li><span>Actual system inspected</span><strong>NO</strong></li>
-                <li><span>Scan engine</span><strong>SIMULATED</strong></li>
-            `;
-
-            button.disabled = false;
-            button.textContent = "↻ RUN AGAIN";
-            scanRunning = false;
-
-            showToast("Demo scan completed. No real system was scanned.");
-        }
-    }, 140);
+    if (value >= 100) {
+      clearInterval(timer);
+      title.textContent = "Demo complete";
+      text.textContent = "No real system or network was scanned.";
+      icon.textContent = "✓";
+      document.getElementById("resultOne").textContent = "24";
+      document.getElementById("resultTwo").textContent = "0";
+      document.getElementById("resultThree").textContent = "DEMO";
+      button.disabled = false;
+      button.textContent = "RUN AGAIN ↗";
+      scanRunning = false;
+    }
+  }, 100);
 });
 
-// Interactive terminal — safe local commands only
+/* SIMULATED TERMINAL */
 const terminalForm = document.getElementById("terminalForm");
 const terminalInput = document.getElementById("terminalInput");
 const terminalOutput = document.getElementById("terminalOutput");
 
+function terminalWrite(text) {
+  terminalOutput.textContent += "\n" + text + "\n\nvisitor@nexora:~$";
+  terminalOutput.scrollTop = terminalOutput.scrollHeight;
+}
+
 terminalForm.addEventListener("submit", event => {
-    event.preventDefault();
+  event.preventDefault();
+  const command = terminalInput.value.trim().toLowerCase();
+  terminalInput.value = "";
 
-    const command = terminalInput.value.trim().toLowerCase();
+  terminalOutput.textContent += " " + command;
 
-    if (!command) return;
+  const responses = {
+    help: "Available commands: help, about, status, skills, products, clear, date",
+    about: "NEXORA is a digital learning brand focused on cybersecurity and development.",
+    status: "Demo status: online. No real system checks are being performed.",
+    skills: "Topics: cybersecurity, Linux, HTML, CSS, JavaScript.",
+    products: Object.keys(products).join("\n"),
+    date: new Date().toLocaleString()
+  };
 
-    if (command === "clear") {
-        terminalOutput.innerHTML = "";
-        terminalInput.value = "";
-        return;
-    }
+  if (command === "clear") {
+    terminalOutput.textContent = "NEXORA interactive terminal [demo]\nType help to see available commands.\n\nvisitor@nexora:~$";
+    return;
+  }
 
-    const commandLine = document.createElement("div");
-    commandLine.className = "terminal-line";
+  if (!command) {
+    terminalWrite("");
+    return;
+  }
 
-    const prompt = document.createElement("span");
-    prompt.className = "terminal-prompt";
-    prompt.textContent = "nexora $ ";
-
-    commandLine.appendChild(prompt);
-    commandLine.appendChild(document.createTextNode(command));
-    terminalOutput.appendChild(commandLine);
-
-    const output = document.createElement("div");
-    output.className = "terminal-line";
-
-    const messages = {
-        help: "Commands: help, about, status, skills, clear, date",
-        about: "NEXORA is a demo website concept for digital learning and security.",
-        status: "Website interface: running | Terminal: simulated | Real scans: disabled",
-        skills: "Suggested path: HTML → CSS → JavaScript → Git → backend fundamentals.",
-        date: "Browser date: " + new Date().toLocaleString()
-    };
-
-    output.textContent = messages[command] ||
-        "Command not found. Type 'help' to see the available demo commands.";
-
-    terminalOutput.appendChild(output);
-    terminalInput.value = "";
-
-    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+  terminalWrite(responses[command] || "Command not found. Type help to see available commands.");
 });
 
-// FAQ accordion
-document.querySelectorAll(".faq-question").forEach(button => {
-    button.addEventListener("click", () => {
-        const item = button.closest(".faq-item");
-        const isOpen = item.classList.toggle("open");
-
-        button.setAttribute("aria-expanded", String(isOpen));
-    });
-});
-
-// Newsletter demo
-document.getElementById("newsletterForm").addEventListener("submit", event => {
-    event.preventDefault();
-
-    const emailInput = document.getElementById("newsletterEmail");
-
-    if (!emailInput.checkValidity()) {
-        emailInput.reportValidity();
-        return;
-    }
-
-    showToast("Demo signup only. Your email has not been saved.");
-    emailInput.value = "";
-});
-
-// Reveal elements as they enter the viewport
-const revealElements = document.querySelectorAll(".reveal");
-
-if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.08 });
-
-    revealElements.forEach(element => observer.observe(element));
-} else {
-    revealElements.forEach(element => element.classList.add("visible"));
-}
-
-// Back-to-top button
-const backTop = document.getElementById("backTop");
-
-window.addEventListener("scroll", () => {
-    backTop.classList.toggle("visible", window.scrollY > 500);
-});
-
-backTop.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-// Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
-
-// Highlight the navigation link for the current section
-const observedSections = document.querySelectorAll(
-    "header[id], section[id]"
-);
-
-if ("IntersectionObserver" in window) {
-    const sectionObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                navLinks.querySelectorAll("a").forEach(link => {
-                    link.classList.toggle(
-                        "active",
-                        link.getAttribute("href") === "#" + entry.target.id
-                    );
-                });
-            }
-        });
-    }, { rootMargin: "-25% 0px -65% 0px" });
-
-    observedSections.forEach(section => sectionObserver.observe(section));
-}
+updateCart();
 </script>
-
 </body>
 </html>
